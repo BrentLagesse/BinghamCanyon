@@ -1,30 +1,18 @@
 {
   "program": "blastp",
   "version": "BLASTP 2.12.0+",
-  "command": "singularity exec $APPBIN/singularity/ncbiblast:2.9.0 /ncbiblast/bin/blastp -db &quot;uniprotkb_refprotswissprot&quot; -query ncbiblast-R20240727-062154-0547-62486827-p1m.sequence  -num_threads 32 -outfmt 11 -out ncbiblast-R20240727-062154-0547-62486827-p1m.archive -matrix BLOSUM62 -max_target_seqs 250 -evalue 10 -seg no -comp_based_stats F",
-  "query_def": "sp|P54199|MPS1_YEAST Serine/threonine-protein kinase MPS1 OS=Saccharomyces cerevisiae (strain ATCC 204508 / S288c) OX=559292 GN=MPS1 PE=1 SV=2",
-  "query_db": "SP",
-  "query_id": "MPS1_YEAST",
-  "query_acc": "P54199",
-  "query_desc": "Serine/threonine-protein kinase MPS1 OS=Saccharomyces cerevisiae (strain ATCC 204508 / S288c) OX=559292 GN=MPS1 PE=1 SV=2",
-  "query_url": "https://www.uniprot.org/uniprot/P54199",
-  "query_os": "Saccharomyces cerevisiae (strain ATCC 204508 / S288c)",
-  "query_uni_de": "Serine/threonine-protein kinase MPS1",
-  "query_uni_os": "Saccharomyces cerevisiae (strain ATCC 204508 / S288c)",
-  "query_uni_ox": "559292",
-  "query_uni_gn": "MPS1",
-  "query_uni_pe": "1",
-  "query_uni_sv": "2",
+  "command": "singularity exec $APPBIN/singularity/ncbiblast:2.9.0 /ncbiblast/bin/blastp -db &quot;uniprotkb_refprotswissprot&quot; -query ncbiblast-R20240731-013023-0266-50436463-p1m.sequence  -num_threads 32 -outfmt 11 -out ncbiblast-R20240731-013023-0266-50436463-p1m.archive -matrix BLOSUM62 -max_target_seqs 250 -evalue 10 -seg no -comp_based_stats F",
+  "query_def": "EMBOSS_001",
   "query_stype": "protein",
   "query_len": 764,
   "db_count": 1,
-  "db_num": 88438703,
-  "db_len": 35617992285,
+  "db_num": 87848071,
+  "db_len": 35476748647,
   "dbs": [
     {
       "name": "uniprotkb_refprotswissprot",
       "stype": "protein",
-      "created": "2024-05-17T01:21:00+01:00"
+      "created": "2024-07-26T02:43:00+01:00"
     }
   ],
   "alignments": 250,
@@ -34,9 +22,9 @@
   "gap_extend": 1.0,
   "gap_open": 11.0,
   "matrix": "BLOSUM62",
-  "start": "2024-07-27T06:21:54+01:00",
-  "end": "2024-07-27T06:28:19+01:00",
-  "search": "P0Y0M0DT0H0M385.000S",
+  "start": "2024-07-31T01:30:23+01:00",
+  "end": "2024-07-31T01:36:31+01:00",
+  "search": "P0Y0M0DT0H0M368.000S",
   "hits": [
     {
       "hit_num": 1,
@@ -1311,7 +1299,7 @@
           "hsp_num": 1,
           "hsp_score": 1091,
           "hsp_bit_score": 424.861,
-          "hsp_expect": 7.2e-134,
+          "hsp_expect": 7.1e-134,
           "hsp_align_len": 766,
           "hsp_identity": 36.0,
           "hsp_positive": 52.5,
@@ -1393,7 +1381,7 @@
           "hsp_num": 1,
           "hsp_score": 1062,
           "hsp_bit_score": 413.69,
-          "hsp_expect": 2.5e-130,
+          "hsp_expect": 2.4e-130,
           "hsp_align_len": 785,
           "hsp_identity": 35.5,
           "hsp_positive": 52.4,
@@ -1475,7 +1463,7 @@
           "hsp_num": 1,
           "hsp_score": 1057,
           "hsp_bit_score": 411.764,
-          "hsp_expect": 9.7e-130,
+          "hsp_expect": 9.6e-130,
           "hsp_align_len": 361,
           "hsp_identity": 55.1,
           "hsp_positive": 73.7,
@@ -1516,7 +1504,7 @@
           "hsp_num": 1,
           "hsp_score": 1051,
           "hsp_bit_score": 409.453,
-          "hsp_expect": 3.6e-127,
+          "hsp_expect": 3.5e-127,
           "hsp_align_len": 775,
           "hsp_identity": 34.8,
           "hsp_positive": 52.0,
@@ -1598,7 +1586,7 @@
           "hsp_num": 1,
           "hsp_score": 1042,
           "hsp_bit_score": 405.986,
-          "hsp_expect": 1.7e-126,
+          "hsp_expect": 1.6e-126,
           "hsp_align_len": 836,
           "hsp_identity": 34.1,
           "hsp_positive": 50.5,
@@ -1639,7 +1627,7 @@
           "hsp_num": 1,
           "hsp_score": 1035,
           "hsp_bit_score": 403.29,
-          "hsp_expect": 3.7e-126,
+          "hsp_expect": 3.6e-126,
           "hsp_align_len": 764,
           "hsp_identity": 34.4,
           "hsp_positive": 53.9,
@@ -2172,7 +2160,7 @@
           "hsp_num": 1,
           "hsp_score": 1001,
           "hsp_bit_score": 390.193,
-          "hsp_expect": 7.1e-120,
+          "hsp_expect": 7e-120,
           "hsp_align_len": 542,
           "hsp_identity": 41.1,
           "hsp_positive": 58.5,
@@ -2295,7 +2283,7 @@
           "hsp_num": 1,
           "hsp_score": 989,
           "hsp_bit_score": 385.571,
-          "hsp_expect": 6.8e-119,
+          "hsp_expect": 6.7e-119,
           "hsp_align_len": 487,
           "hsp_identity": 42.7,
           "hsp_positive": 62.4,
@@ -2992,7 +2980,7 @@
           "hsp_num": 1,
           "hsp_score": 931,
           "hsp_bit_score": 363.229,
-          "hsp_expect": 6.8e-109,
+          "hsp_expect": 6.7e-109,
           "hsp_align_len": 606,
           "hsp_identity": 34.3,
           "hsp_positive": 55.4,
@@ -3279,7 +3267,7 @@
           "hsp_num": 1,
           "hsp_score": 859,
           "hsp_bit_score": 335.495,
-          "hsp_expect": 2.9e-101,
+          "hsp_expect": 2.8e-101,
           "hsp_align_len": 513,
           "hsp_identity": 36.8,
           "hsp_positive": 59.3,
@@ -3320,7 +3308,7 @@
           "hsp_num": 1,
           "hsp_score": 851,
           "hsp_bit_score": 332.413,
-          "hsp_expect": 4.5e-100,
+          "hsp_expect": 4.4e-100,
           "hsp_align_len": 433,
           "hsp_identity": 40.6,
           "hsp_positive": 61.4,
@@ -3730,7 +3718,7 @@
           "hsp_num": 1,
           "hsp_score": 736,
           "hsp_bit_score": 288.115,
-          "hsp_expect": 9e-87,
+          "hsp_expect": 8.9e-87,
           "hsp_align_len": 312,
           "hsp_identity": 47.1,
           "hsp_positive": 67.3,
@@ -4058,7 +4046,7 @@
           "hsp_num": 1,
           "hsp_score": 760,
           "hsp_bit_score": 297.36,
-          "hsp_expect": 2.9e-85,
+          "hsp_expect": 2.8e-85,
           "hsp_align_len": 707,
           "hsp_identity": 32.7,
           "hsp_positive": 49.5,
@@ -4468,7 +4456,7 @@
           "hsp_num": 1,
           "hsp_score": 751,
           "hsp_bit_score": 293.893,
-          "hsp_expect": 5.6e-84,
+          "hsp_expect": 5.5e-84,
           "hsp_align_len": 706,
           "hsp_identity": 33.0,
           "hsp_positive": 49.4,
@@ -5083,7 +5071,7 @@
           "hsp_num": 1,
           "hsp_score": 735,
           "hsp_bit_score": 287.73,
-          "hsp_expect": 5.1e-82,
+          "hsp_expect": 5e-82,
           "hsp_align_len": 424,
           "hsp_identity": 39.6,
           "hsp_positive": 59.0,
@@ -5206,7 +5194,7 @@
           "hsp_num": 1,
           "hsp_score": 736,
           "hsp_bit_score": 288.115,
-          "hsp_expect": 8.1e-82,
+          "hsp_expect": 8e-82,
           "hsp_align_len": 344,
           "hsp_identity": 45.3,
           "hsp_positive": 65.1,
@@ -5534,7 +5522,7 @@
           "hsp_num": 1,
           "hsp_score": 729,
           "hsp_bit_score": 285.419,
-          "hsp_expect": 6.9e-81,
+          "hsp_expect": 6.8e-81,
           "hsp_align_len": 364,
           "hsp_identity": 42.6,
           "hsp_positive": 62.4,
@@ -5821,7 +5809,7 @@
           "hsp_num": 1,
           "hsp_score": 719,
           "hsp_bit_score": 281.567,
-          "hsp_expect": 1.2e-80,
+          "hsp_expect": 1.1e-80,
           "hsp_align_len": 329,
           "hsp_identity": 45.0,
           "hsp_positive": 64.4,
@@ -6169,17 +6157,17 @@
     },
     {
       "hit_num": 150,
-      "hit_def": "TR:A0A2B7YBB3 A0A2B7YBB3_9EURO TTK protein kinase OS=Polytolypa hystricis UAMH7299 OX=1447883 GN=AJ80_04549 PE=4 SV=1",
+      "hit_def": "TR:A0A2B7YBB3 A0A2B7YBB3_POLH7 TTK protein kinase OS=Polytolypa hystricis (strain UAMH7299) OX=1447883 GN=AJ80_04549 PE=4 SV=1",
       "hit_db": "TR",
-      "hit_id": "A0A2B7YBB3_9EURO",
+      "hit_id": "A0A2B7YBB3_POLH7",
       "hit_acc": "A0A2B7YBB3",
-      "hit_desc": "TTK protein kinase OS=Polytolypa hystricis UAMH7299 OX=1447883 GN=AJ80_04549 PE=4 SV=1",
+      "hit_desc": "TTK protein kinase OS=Polytolypa hystricis (strain UAMH7299) OX=1447883 GN=AJ80_04549 PE=4 SV=1",
       "hit_url": "https://www.uniprot.org/uniprot/A0A2B7YBB3",
       "hit_xref_url": "https://www.ebi.ac.uk/ebisearch/search.ebi?db=uniprot&query=A0A2B7YBB3",
       "hit_dbfetch_url": "https://www.ebi.ac.uk/Tools/dbfetch/dbfetch?style=raw;db=uniprot;id=A0A2B7YBB3",
-      "hit_os": "Polytolypa hystricis UAMH7299",
+      "hit_os": "Polytolypa hystricis (strain UAMH7299)",
       "hit_uni_de": "TTK protein kinase",
-      "hit_uni_os": "Polytolypa hystricis UAMH7299",
+      "hit_uni_os": "Polytolypa hystricis (strain UAMH7299)",
       "hit_uni_ox": "1447883",
       "hit_uni_gn": "AJ80_04549",
       "hit_uni_pe": "4",
@@ -6641,7 +6629,7 @@
           "hsp_num": 1,
           "hsp_score": 722,
           "hsp_bit_score": 282.722,
-          "hsp_expect": 4.5e-80,
+          "hsp_expect": 4.4e-80,
           "hsp_align_len": 338,
           "hsp_identity": 44.4,
           "hsp_positive": 63.9,
@@ -6682,7 +6670,7 @@
           "hsp_num": 1,
           "hsp_score": 725,
           "hsp_bit_score": 283.878,
-          "hsp_expect": 4.9e-80,
+          "hsp_expect": 4.8e-80,
           "hsp_align_len": 353,
           "hsp_identity": 45.3,
           "hsp_positive": 61.8,
@@ -6784,6 +6772,47 @@
     },
     {
       "hit_num": 165,
+      "hit_def": "TR:A0A7U2MRJ5 A0A7U2MRJ5_ASPFN Checkpoint protein kinase OS=Aspergillus flavus (strain ATCC 200026 / FGSC A1120 / IAM 13836 / NRRL 3357 / JCM 12722 / SRRC 167) OX=332952 GN=F9C07_1479 PE=4 SV=1",
+      "hit_db": "TR",
+      "hit_id": "A0A7U2MRJ5_ASPFN",
+      "hit_acc": "A0A7U2MRJ5",
+      "hit_desc": "Checkpoint protein kinase OS=Aspergillus flavus (strain ATCC 200026 / FGSC A1120 / IAM 13836 / NRRL 3357 / JCM 12722 / SRRC 167) OX=332952 GN=F9C07_1479 PE=4 SV=1",
+      "hit_url": "https://www.uniprot.org/uniprot/A0A7U2MRJ5",
+      "hit_xref_url": "https://www.ebi.ac.uk/ebisearch/search.ebi?db=uniprot&query=A0A7U2MRJ5",
+      "hit_dbfetch_url": "https://www.ebi.ac.uk/Tools/dbfetch/dbfetch?style=raw;db=uniprot;id=A0A7U2MRJ5",
+      "hit_os": "Aspergillus flavus (strain ATCC 200026 / FGSC A1120 / IAM 13836 / NRRL 3357 / JCM 12722 / SRRC 167)",
+      "hit_uni_de": "Checkpoint protein kinase",
+      "hit_uni_os": "Aspergillus flavus (strain ATCC 200026 / FGSC A1120 / IAM 13836 / NRRL 3357 / JCM 12722 / SRRC 167)",
+      "hit_uni_ox": "332952",
+      "hit_uni_gn": "F9C07_1479",
+      "hit_uni_pe": "4",
+      "hit_uni_sv": "1",
+      "hit_len": 838,
+      "hit_hsps": [
+        {
+          "hsp_num": 1,
+          "hsp_score": 723,
+          "hsp_bit_score": 283.108,
+          "hsp_expect": 5e-80,
+          "hsp_align_len": 338,
+          "hsp_identity": 44.1,
+          "hsp_positive": 63.9,
+          "hsp_gaps": 4,
+          "hsp_query_frame": "0",
+          "hsp_hit_frame": "0",
+          "hsp_strand": "none/none",
+          "hsp_query_from": 403,
+          "hsp_query_to": 730,
+          "hsp_hit_from": 456,
+          "hsp_hit_to": 790,
+          "hsp_qseq": "HRPAPKPPVTKKVEIVEP----AKSASLSNNRNIITVNDSQYEKIELLGRGGSSRVYKVKGSGNRVYALKRVSFDAFDDSSIDGFKGEIELLEKLKDQKRVIQLLDYEMGDG--LLYLIMECGDHDLSQILNQRSGMP---LDFNFVRFYTKEMLLCIKVVHDAGIVHSDLKPANFVLVKGILKIIDFGIANAVPEHTVNIYRETQIGTPNYMAPEALVAMNYTQNSENQHEGNKWKVGRPSDMWSCGCIIYQMIYGKPPYGSF-QGQNRLLAIMNPDVKIPFPEHTSNNEKIPKSAIELMKACLYRNPDKRWTVDKVLSSTFLQPFMISGSIMEDLI",
+          "hsp_mseq": "HRPAP PP    +E        A ++S    RN ++VN   + +++ +GRGGSSRVY+V     +++ALKRV+ +  D  ++ G+KGEI+LL+KL++  RV++L D+E+      L ++ME G+ DL +IL  R        D NF R+Y KEML C++ VH+  IVHSDLKPANF+LV+G LK+IDFGIANA+ ++TVN++RE Q+GTPNYM+PEAL+  N +        G   K+G+PSD+WS GCI+Y+M+YG+PP+    +   R+LAI NP+VKI FP        IP   I  +K CL R+   R TVD++L+     PF+   + +E  +",
+          "hsp_hseq": "HRPAPPPPKMSVLETATATGGAATASSSRRKRNQVSVNHKPFTRLDCIGRGGSSRVYRVMAENYKIFALKRVNLEDVDPVTLAGYKGEIDLLKKLENLDRVVRLFDWELNSDKHTLSVLMEIGESDLEKILTYRLNAEDAVFDINFTRYYWKEMLECVQAVHNYNIVHSDLKPANFLLVQGRLKLIDFGIANAIQDNTVNVHREQQVGTPNYMSPEALIDSNASLGLP-ASVGKVMKLGKPSDVWSLGCILYKMVYGQPPFAKIAKYYERILAIPNPNVKIDFPAFGVGGASIPPGLIRTLKGCLQRDQTLRPTVDQLLAQR--DPFLYPEAQLEGAV"
+        }
+      ]
+    },
+    {
+      "hit_num": 166,
       "hit_def": "TR:A0A5N6DLV0 A0A5N6DLV0_ASPPA Kinase-like domain-containing protein OS=Aspergillus parasiticus OX=5067 GN=BDV34DRAFT_89051 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A5N6DLV0_ASPPA",
@@ -6824,7 +6853,7 @@
       ]
     },
     {
-      "hit_num": 166,
+      "hit_num": 167,
       "hit_def": "TR:A0A5N6ILK9 A0A5N6ILK9_9EURO Kinase-like domain-containing protein OS=Aspergillus minisclerotigenes OX=656917 GN=BDV30DRAFT_220378 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A5N6ILK9_9EURO",
@@ -6865,7 +6894,7 @@
       ]
     },
     {
-      "hit_num": 167,
+      "hit_num": 168,
       "hit_def": "TR:A0A2T3YWB9 A0A2T3YWB9_9HYPO Protein kinase domain-containing protein OS=Trichoderma asperellum CBS 433.97 OX=1042311 GN=M441DRAFT_72924 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A2T3YWB9_9HYPO",
@@ -6906,7 +6935,7 @@
       ]
     },
     {
-      "hit_num": 168,
+      "hit_num": 169,
       "hit_def": "TR:A0A6V8QUU0 A0A6V8QUU0_9HYPO Serine/threonine-protein kinase MPS1 OS=Trichoderma asperellum OX=101201 GN=TASIC1_0006058400 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A6V8QUU0_9HYPO",
@@ -6947,7 +6976,7 @@
       ]
     },
     {
-      "hit_num": 169,
+      "hit_num": 170,
       "hit_def": "TR:A0A6G1H8Q6 A0A6G1H8Q6_9PEZI Pkinase-domain-containing protein OS=Aulographum hederae CBS 113979 OX=1176131 GN=K402DRAFT_460961 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A6G1H8Q6_9PEZI",
@@ -6988,7 +7017,7 @@
       ]
     },
     {
-      "hit_num": 170,
+      "hit_num": 171,
       "hit_def": "TR:S7Z9Y8 S7Z9Y8_PENO1 Protein kinase domain-containing protein OS=Penicillium oxalicum (strain 114-2 / CGMCC 5302) OX=933388 GN=PDE_01975 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "S7Z9Y8_PENO1",
@@ -7029,7 +7058,7 @@
       ]
     },
     {
-      "hit_num": 171,
+      "hit_num": 172,
       "hit_def": "TR:A0A8E0QLQ5 A0A8E0QLQ5_9EURO Dual-specificity kinase, spindle pole body (SPB) duplication and spindle checkpoint function OS=Aspergillus udagawae OX=91492 GN=Aud_003119 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8E0QLQ5_9EURO",
@@ -7051,7 +7080,7 @@
           "hsp_num": 1,
           "hsp_score": 721,
           "hsp_bit_score": 282.337,
-          "hsp_expect": 6.8e-80,
+          "hsp_expect": 6.7e-80,
           "hsp_align_len": 700,
           "hsp_identity": 30.3,
           "hsp_positive": 48.3,
@@ -7070,7 +7099,7 @@
       ]
     },
     {
-      "hit_num": 172,
+      "hit_num": 173,
       "hit_def": "TR:A0A1V6PJD5 A0A1V6PJD5_PENDC Protein kinase domain-containing protein OS=Penicillium decumbens OX=69771 GN=PENDEC_c003G05193 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A1V6PJD5_PENDC",
@@ -7092,7 +7121,7 @@
           "hsp_num": 1,
           "hsp_score": 721,
           "hsp_bit_score": 282.337,
-          "hsp_expect": 6.8e-80,
+          "hsp_expect": 6.7e-80,
           "hsp_align_len": 325,
           "hsp_identity": 44.9,
           "hsp_positive": 64.6,
@@ -7111,7 +7140,7 @@
       ]
     },
     {
-      "hit_num": 173,
+      "hit_num": 174,
       "hit_def": "TR:A0A8H4GSN8 A0A8H4GSN8_9EURO Protein kinase domain-containing protein OS=Aspergillus fumigatiaffinis OX=340414 GN=CNMCM6457_007348 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8H4GSN8_9EURO",
@@ -7133,7 +7162,7 @@
           "hsp_num": 1,
           "hsp_score": 721,
           "hsp_bit_score": 282.337,
-          "hsp_expect": 6.8e-80,
+          "hsp_expect": 6.7e-80,
           "hsp_align_len": 701,
           "hsp_identity": 31.7,
           "hsp_positive": 48.2,
@@ -7152,7 +7181,7 @@
       ]
     },
     {
-      "hit_num": 174,
+      "hit_num": 175,
       "hit_def": "TR:A0A5N6SM90 A0A5N6SM90_ASPPS Kinase-like domain-containing protein OS=Aspergillus pseudotamarii OX=132259 GN=BDV38DRAFT_256052 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A5N6SM90_ASPPS",
@@ -7193,7 +7222,7 @@
       ]
     },
     {
-      "hit_num": 175,
+      "hit_num": 176,
       "hit_def": "TR:A0A1F7ZVX0 A0A1F7ZVX0_9EURO Putative checkpoint protein kinase OS=Aspergillus bombycis OX=109264 GN=ABOM_008568 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A1F7ZVX0_9EURO",
@@ -7215,7 +7244,7 @@
           "hsp_num": 1,
           "hsp_score": 722,
           "hsp_bit_score": 282.722,
-          "hsp_expect": 7e-80,
+          "hsp_expect": 6.9e-80,
           "hsp_align_len": 338,
           "hsp_identity": 44.4,
           "hsp_positive": 63.9,
@@ -7234,7 +7263,7 @@
       ]
     },
     {
-      "hit_num": 176,
+      "hit_num": 177,
       "hit_def": "TR:A0A5N7DLJ7 A0A5N7DLJ7_9EURO Kinase-like domain-containing protein OS=Aspergillus pseudonomiae OX=1506151 GN=BDV37DRAFT_241513 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A5N7DLJ7_9EURO",
@@ -7256,7 +7285,7 @@
           "hsp_num": 1,
           "hsp_score": 722,
           "hsp_bit_score": 282.722,
-          "hsp_expect": 7e-80,
+          "hsp_expect": 6.9e-80,
           "hsp_align_len": 338,
           "hsp_identity": 44.4,
           "hsp_positive": 63.9,
@@ -7275,7 +7304,7 @@
       ]
     },
     {
-      "hit_num": 177,
+      "hit_num": 178,
       "hit_def": "TR:A0A0L1IY57 A0A0L1IY57_ASPNO Putative checkpoint protein kinase OS=Aspergillus nomiae NRRL 13137 OX=1509407 GN=ANOM_008177 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A0L1IY57_ASPNO",
@@ -7297,7 +7326,7 @@
           "hsp_num": 1,
           "hsp_score": 722,
           "hsp_bit_score": 282.722,
-          "hsp_expect": 7e-80,
+          "hsp_expect": 6.9e-80,
           "hsp_align_len": 338,
           "hsp_identity": 44.4,
           "hsp_positive": 63.9,
@@ -7316,7 +7345,7 @@
       ]
     },
     {
-      "hit_num": 178,
+      "hit_num": 179,
       "hit_def": "TR:A0A5N7A084 A0A5N7A084_9EURO Kinase-like domain-containing protein OS=Aspergillus caelatus OX=61420 GN=BDV27DRAFT_130475 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A5N7A084_9EURO",
@@ -7338,7 +7367,7 @@
           "hsp_num": 1,
           "hsp_score": 722,
           "hsp_bit_score": 282.722,
-          "hsp_expect": 7e-80,
+          "hsp_expect": 6.9e-80,
           "hsp_align_len": 338,
           "hsp_identity": 44.4,
           "hsp_positive": 63.9,
@@ -7357,7 +7386,7 @@
       ]
     },
     {
-      "hit_num": 179,
+      "hit_num": 180,
       "hit_def": "TR:A0A8J8VXT7 A0A8J8VXT7_9EURO Serine/threonine-protein kinase OS=Penicillium ucsense OX=2839758 GN=PECM_000578 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8J8VXT7_9EURO",
@@ -7379,7 +7408,7 @@
           "hsp_num": 1,
           "hsp_score": 723,
           "hsp_bit_score": 283.108,
-          "hsp_expect": 7.4e-80,
+          "hsp_expect": 7.3e-80,
           "hsp_align_len": 517,
           "hsp_identity": 35.2,
           "hsp_positive": 54.2,
@@ -7398,7 +7427,7 @@
       ]
     },
     {
-      "hit_num": 180,
+      "hit_num": 181,
       "hit_def": "TR:A0A093XGZ2 A0A093XGZ2_9PEZI Protein kinase domain-containing protein (Fragment) OS=Pseudogymnoascus sp. VKM F-3808 OX=1391699 GN=O988_07514 PE=3 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A093XGZ2_9PEZI",
@@ -7439,7 +7468,7 @@
       ]
     },
     {
-      "hit_num": 181,
+      "hit_num": 182,
       "hit_def": "TR:A0A8H8S8C4 A0A8H8S8C4_9HELO Serine/threonine-protein kinase OS=Lachnellula occidentalis OX=215460 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8H8S8C4_9HELO",
@@ -7461,7 +7490,7 @@
           "hsp_num": 1,
           "hsp_score": 722,
           "hsp_bit_score": 282.722,
-          "hsp_expect": 7.9e-80,
+          "hsp_expect": 7.8e-80,
           "hsp_align_len": 473,
           "hsp_identity": 38.9,
           "hsp_positive": 57.9,
@@ -7480,7 +7509,7 @@
       ]
     },
     {
-      "hit_num": 182,
+      "hit_num": 183,
       "hit_def": "TR:A0A8E2E5X7 A0A8E2E5X7_9PEZI Kinase-like protein OS=Lepidopterella palustris CBS 459.81 OX=1314670 GN=K432DRAFT_395206 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8E2E5X7_9PEZI",
@@ -7521,7 +7550,7 @@
       ]
     },
     {
-      "hit_num": 183,
+      "hit_num": 184,
       "hit_def": "TR:Q0CXC5 Q0CXC5_ASPTN Protein kinase domain-containing protein OS=Aspergillus terreus (strain NIH 2624 / FGSC A1156) OX=341663 GN=ATEG_01659 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "Q0CXC5_ASPTN",
@@ -7562,7 +7591,7 @@
       ]
     },
     {
-      "hit_num": 184,
+      "hit_num": 185,
       "hit_def": "TR:A0A5N6UT10 A0A5N6UT10_ASPTM Kinase-like domain-containing protein OS=Aspergillus tamarii OX=41984 GN=BDV40DRAFT_268718 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A5N6UT10_ASPTM",
@@ -7584,7 +7613,7 @@
           "hsp_num": 1,
           "hsp_score": 721,
           "hsp_bit_score": 282.337,
-          "hsp_expect": 9.7e-80,
+          "hsp_expect": 9.6e-80,
           "hsp_align_len": 338,
           "hsp_identity": 44.1,
           "hsp_positive": 63.9,
@@ -7603,7 +7632,7 @@
       ]
     },
     {
-      "hit_num": 185,
+      "hit_num": 186,
       "hit_def": "TR:A0A9W9LKV6 A0A9W9LKV6_9EURO Protein kinase domain-containing protein OS=Penicillium capsulatum OX=69766 GN=N7492_006616 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9W9LKV6_9EURO",
@@ -7644,7 +7673,7 @@
       ]
     },
     {
-      "hit_num": 186,
+      "hit_num": 187,
       "hit_def": "TR:A0A1L9TN62 A0A1L9TN62_9EURO Protein kinase domain-containing protein OS=Aspergillus sydowii CBS 593.65 OX=1036612 GN=ASPSYDRAFT_147573 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A1L9TN62_9EURO",
@@ -7685,7 +7714,7 @@
       ]
     },
     {
-      "hit_num": 187,
+      "hit_num": 188,
       "hit_def": "TR:A0A9N9KUM5 A0A9N9KUM5_9HELO Protein kinase domain-containing protein OS=Hymenoscyphus fraxineus OX=746836 GN=HYFRA_00001067 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9N9KUM5_9HELO",
@@ -7726,7 +7755,7 @@
       ]
     },
     {
-      "hit_num": 188,
+      "hit_num": 189,
       "hit_def": "TR:A0A2S7PW31 A0A2S7PW31_9HELO Protein kinase domain-containing protein OS=Rutstroemia sp. NJR-2017a BVV2 OX=2070413 GN=CJF31_00001971 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A2S7PW31_9HELO",
@@ -7767,7 +7796,7 @@
       ]
     },
     {
-      "hit_num": 189,
+      "hit_num": 190,
       "hit_def": "TR:A0A4R8RB38 A0A4R8RB38_COLTR Serine/threonine-protein kinase MPS1 OS=Colletotrichum trifolii OX=5466 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A4R8RB38_COLTR",
@@ -7808,7 +7837,7 @@
       ]
     },
     {
-      "hit_num": 190,
+      "hit_num": 191,
       "hit_def": "TR:A0A229Z472 A0A229Z472_9EURO Protein kinase domain-containing protein OS=Aspergillus turcosus OX=1245748 GN=CDV55_108118 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A229Z472_9EURO",
@@ -7849,7 +7878,7 @@
       ]
     },
     {
-      "hit_num": 191,
+      "hit_num": 192,
       "hit_def": "TR:A0A1L9UVW3 A0A1L9UVW3_ASPBC Protein kinase domain-containing protein OS=Aspergillus brasiliensis (strain CBS 101740 / IMI 381727 / IBT 21946) OX=767769 GN=ASPBRDRAFT_38012 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A1L9UVW3_ASPBC",
@@ -7883,47 +7912,6 @@
           "hsp_query_to": 756,
           "hsp_hit_from": 413,
           "hsp_hit_to": 762,
-          "hsp_qseq": "HRPAPKPPVTKKVEIVEPAKSASLSNN----RNIITVNDSQYEKIELLGRGGSSRVYKVKGSGNRVYALKRVSFDAFDDSSIDGFKGEIELLEKLKDQKRVIQLLDYEMGDG--LLYLIMECGDHDLSQILNQRSGMP---LDFNFVRFYTKEMLLCIKVVHDAGIVHSDLKPANFVLVKGILKIIDFGIANAVPEHTVNIYRETQIGTPNYMAPEALVAMNYTQNSENQHEGNKWKVGRPSDMWSCGCIIYQMIYGKPPYGSF-QGQNRLLAIMNPDVKIPFPEHTSNNEKIPKSAIELMKACLYRNPDKRWTVDKVLSSTFLQPFMISGSIMEDLIRNAVRYGSEKPHISQDDLNDVVDTVL",
-          "hsp_mseq": "HRPAP PP    +E       A+ ++     R+ ++VN   + +++ +GRGGSSRVY+V     +++ALKRV+ +  D +++ G+KGEI+LL+KL++  RV++L D+E+      L ++ME G+ DL +IL  R        D NF R+Y KEML C++ VHD  IVHSDLKPANF+LV+G LK+IDFGIANA+ ++TVN++RE Q+GTPNYM+PEALV  N +        G   K+G+PSD+WS GCI+Y+M+YG+PP+    +   R+LAI NP VKI FP        +P   +  +K CL R+   R TV+++L      PF+   + +E  +            ++QD LN ++  V+",
-          "hsp_hseq": "HRPAPPPPKMSVLETATATGGAATASQSRKKRSQVSVNHKPFTRLDCIGRGGSSRVYRVMAENYKIFALKRVNLEDVDPTTLAGYKGEIDLLKKLENLDRVVRLFDWELNSDKHTLSVLMEIGESDLEKILTYRLNAEDARFDINFTRYYWKEMLECVQAVHDHNIVHSDLKPANFLLVQGRLKLIDFGIANAIQDNTVNVHREQQVGTPNYMSPEALVDSNASLGLP-ASVGKMMKLGKPSDVWSLGCILYKMVYGQPPFAKIAKYYERILAIPNPHVKIDFPAFGVGGVPVPPGLVRTLKRCLQRDQTLRPTVEELLGQR--DPFLYPDAQLEGAV-----------PVTQDMLNRILVNVV"
-        }
-      ]
-    },
-    {
-      "hit_num": 192,
-      "hit_def": "TR:A2QEM4 A2QEM4_ASPNC Contig An02c0360, genomic contig OS=Aspergillus niger (strain ATCC MYA-4892 / CBS 513.88 / FGSC A1513) OX=425011 GN=An02g11590 PE=4 SV=1",
-      "hit_db": "TR",
-      "hit_id": "A2QEM4_ASPNC",
-      "hit_acc": "A2QEM4",
-      "hit_desc": "Contig An02c0360, genomic contig OS=Aspergillus niger (strain ATCC MYA-4892 / CBS 513.88 / FGSC A1513) OX=425011 GN=An02g11590 PE=4 SV=1",
-      "hit_url": "https://www.uniprot.org/uniprot/A2QEM4",
-      "hit_xref_url": "https://www.ebi.ac.uk/ebisearch/search.ebi?db=uniprot&query=A2QEM4",
-      "hit_dbfetch_url": "https://www.ebi.ac.uk/Tools/dbfetch/dbfetch?style=raw;db=uniprot;id=A2QEM4",
-      "hit_os": "Aspergillus niger (strain ATCC MYA-4892 / CBS 513.88 / FGSC A1513)",
-      "hit_uni_de": "Contig An02c0360, genomic contig",
-      "hit_uni_os": "Aspergillus niger (strain ATCC MYA-4892 / CBS 513.88 / FGSC A1513)",
-      "hit_uni_ox": "425011",
-      "hit_uni_gn": "An02g11590",
-      "hit_uni_pe": "4",
-      "hit_uni_sv": "1",
-      "hit_len": 796,
-      "hit_hsps": [
-        {
-          "hsp_num": 1,
-          "hsp_score": 717,
-          "hsp_bit_score": 280.796,
-          "hsp_expect": 1.7e-79,
-          "hsp_align_len": 364,
-          "hsp_identity": 41.5,
-          "hsp_positive": 61.8,
-          "hsp_gaps": 7,
-          "hsp_query_frame": "0",
-          "hsp_hit_frame": "0",
-          "hsp_strand": "none/none",
-          "hsp_query_from": 403,
-          "hsp_query_to": 756,
-          "hsp_hit_from": 414,
-          "hsp_hit_to": 763,
           "hsp_qseq": "HRPAPKPPVTKKVEIVEPAKSASLSNN----RNIITVNDSQYEKIELLGRGGSSRVYKVKGSGNRVYALKRVSFDAFDDSSIDGFKGEIELLEKLKDQKRVIQLLDYEMGDG--LLYLIMECGDHDLSQILNQRSGMP---LDFNFVRFYTKEMLLCIKVVHDAGIVHSDLKPANFVLVKGILKIIDFGIANAVPEHTVNIYRETQIGTPNYMAPEALVAMNYTQNSENQHEGNKWKVGRPSDMWSCGCIIYQMIYGKPPYGSF-QGQNRLLAIMNPDVKIPFPEHTSNNEKIPKSAIELMKACLYRNPDKRWTVDKVLSSTFLQPFMISGSIMEDLIRNAVRYGSEKPHISQDDLNDVVDTVL",
           "hsp_mseq": "HRPAP PP    +E       A+ ++     R+ ++VN   + +++ +GRGGSSRVY+V     +++ALKRV+ +  D +++ G+KGEI+LL+KL++  RV++L D+E+      L ++ME G+ DL +IL  R        D NF R+Y KEML C++ VHD  IVHSDLKPANF+LV+G LK+IDFGIANA+ ++TVN++RE Q+GTPNYM+PEALV  N +        G   K+G+PSD+WS GCI+Y+M+YG+PP+    +   R+LAI NP VKI FP        +P   +  +K CL R+   R TV+++L      PF+   + +E  +            ++QD LN ++  V+",
           "hsp_hseq": "HRPAPPPPKMSVLETATATGGAATASQSRKKRSQVSVNHKPFTRLDCIGRGGSSRVYRVMAENYKIFALKRVNLEDVDPTTLAGYKGEIDLLKKLENLDRVVRLFDWELNSDKHTLSVLMEIGESDLEKILTYRLNAEDARFDINFTRYYWKEMLECVQAVHDHNIVHSDLKPANFLLVQGRLKLIDFGIANAIQDNTVNVHREQQVGTPNYMSPEALVDSNASLGLP-ASVGKMMKLGKPSDVWSLGCILYKMVYGQPPFAKIAKYYERILAIPNPHVKIDFPAFGVGGVPVPPGLVRTLKRCLQRDQTLRPTVEELLGQR--DPFLYPDAQLEGAV-----------PVTQDMLNRILVNVV"
@@ -7973,19 +7961,19 @@
     },
     {
       "hit_num": 194,
-      "hit_def": "TR:A0A146FCE5 A0A146FCE5_ASPKA Checkpoint protein kinase OS=Aspergillus kawachii OX=1069201 GN=MPS1 PE=4 SV=1",
+      "hit_def": "TR:A0A401KFQ5 A0A401KFQ5_ASPAW Serine/threonine-protein kinase mph1 OS=Aspergillus awamori OX=105351 GN=AAWM_01002 PE=4 SV=1",
       "hit_db": "TR",
-      "hit_id": "A0A146FCE5_ASPKA",
-      "hit_acc": "A0A146FCE5",
-      "hit_desc": "Checkpoint protein kinase OS=Aspergillus kawachii OX=1069201 GN=MPS1 PE=4 SV=1",
-      "hit_url": "https://www.uniprot.org/uniprot/A0A146FCE5",
-      "hit_xref_url": "https://www.ebi.ac.uk/ebisearch/search.ebi?db=uniprot&query=A0A146FCE5",
-      "hit_dbfetch_url": "https://www.ebi.ac.uk/Tools/dbfetch/dbfetch?style=raw;db=uniprot;id=A0A146FCE5",
-      "hit_os": "Aspergillus kawachii",
-      "hit_uni_de": "Checkpoint protein kinase",
-      "hit_uni_os": "Aspergillus kawachii",
-      "hit_uni_ox": "1069201",
-      "hit_uni_gn": "MPS1",
+      "hit_id": "A0A401KFQ5_ASPAW",
+      "hit_acc": "A0A401KFQ5",
+      "hit_desc": "Serine/threonine-protein kinase mph1 OS=Aspergillus awamori OX=105351 GN=AAWM_01002 PE=4 SV=1",
+      "hit_url": "https://www.uniprot.org/uniprot/A0A401KFQ5",
+      "hit_xref_url": "https://www.ebi.ac.uk/ebisearch/search.ebi?db=uniprot&query=A0A401KFQ5",
+      "hit_dbfetch_url": "https://www.ebi.ac.uk/Tools/dbfetch/dbfetch?style=raw;db=uniprot;id=A0A401KFQ5",
+      "hit_os": "Aspergillus awamori",
+      "hit_uni_de": "Serine/threonine-protein kinase mph1",
+      "hit_uni_os": "Aspergillus awamori",
+      "hit_uni_ox": "105351",
+      "hit_uni_gn": "AAWM_01002",
       "hit_uni_pe": "4",
       "hit_uni_sv": "1",
       "hit_len": 796,
@@ -8014,6 +8002,47 @@
     },
     {
       "hit_num": 195,
+      "hit_def": "TR:A2QEM4 A2QEM4_ASPNC Contig An02c0360, genomic contig OS=Aspergillus niger (strain ATCC MYA-4892 / CBS 513.88 / FGSC A1513) OX=425011 GN=An02g11590 PE=4 SV=1",
+      "hit_db": "TR",
+      "hit_id": "A2QEM4_ASPNC",
+      "hit_acc": "A2QEM4",
+      "hit_desc": "Contig An02c0360, genomic contig OS=Aspergillus niger (strain ATCC MYA-4892 / CBS 513.88 / FGSC A1513) OX=425011 GN=An02g11590 PE=4 SV=1",
+      "hit_url": "https://www.uniprot.org/uniprot/A2QEM4",
+      "hit_xref_url": "https://www.ebi.ac.uk/ebisearch/search.ebi?db=uniprot&query=A2QEM4",
+      "hit_dbfetch_url": "https://www.ebi.ac.uk/Tools/dbfetch/dbfetch?style=raw;db=uniprot;id=A2QEM4",
+      "hit_os": "Aspergillus niger (strain ATCC MYA-4892 / CBS 513.88 / FGSC A1513)",
+      "hit_uni_de": "Contig An02c0360, genomic contig",
+      "hit_uni_os": "Aspergillus niger (strain ATCC MYA-4892 / CBS 513.88 / FGSC A1513)",
+      "hit_uni_ox": "425011",
+      "hit_uni_gn": "An02g11590",
+      "hit_uni_pe": "4",
+      "hit_uni_sv": "1",
+      "hit_len": 796,
+      "hit_hsps": [
+        {
+          "hsp_num": 1,
+          "hsp_score": 717,
+          "hsp_bit_score": 280.796,
+          "hsp_expect": 1.7e-79,
+          "hsp_align_len": 364,
+          "hsp_identity": 41.5,
+          "hsp_positive": 61.8,
+          "hsp_gaps": 7,
+          "hsp_query_frame": "0",
+          "hsp_hit_frame": "0",
+          "hsp_strand": "none/none",
+          "hsp_query_from": 403,
+          "hsp_query_to": 756,
+          "hsp_hit_from": 414,
+          "hsp_hit_to": 763,
+          "hsp_qseq": "HRPAPKPPVTKKVEIVEPAKSASLSNN----RNIITVNDSQYEKIELLGRGGSSRVYKVKGSGNRVYALKRVSFDAFDDSSIDGFKGEIELLEKLKDQKRVIQLLDYEMGDG--LLYLIMECGDHDLSQILNQRSGMP---LDFNFVRFYTKEMLLCIKVVHDAGIVHSDLKPANFVLVKGILKIIDFGIANAVPEHTVNIYRETQIGTPNYMAPEALVAMNYTQNSENQHEGNKWKVGRPSDMWSCGCIIYQMIYGKPPYGSF-QGQNRLLAIMNPDVKIPFPEHTSNNEKIPKSAIELMKACLYRNPDKRWTVDKVLSSTFLQPFMISGSIMEDLIRNAVRYGSEKPHISQDDLNDVVDTVL",
+          "hsp_mseq": "HRPAP PP    +E       A+ ++     R+ ++VN   + +++ +GRGGSSRVY+V     +++ALKRV+ +  D +++ G+KGEI+LL+KL++  RV++L D+E+      L ++ME G+ DL +IL  R        D NF R+Y KEML C++ VHD  IVHSDLKPANF+LV+G LK+IDFGIANA+ ++TVN++RE Q+GTPNYM+PEALV  N +        G   K+G+PSD+WS GCI+Y+M+YG+PP+    +   R+LAI NP VKI FP        +P   +  +K CL R+   R TV+++L      PF+   + +E  +            ++QD LN ++  V+",
+          "hsp_hseq": "HRPAPPPPKMSVLETATATGGAATASQSRKKRSQVSVNHKPFTRLDCIGRGGSSRVYRVMAENYKIFALKRVNLEDVDPTTLAGYKGEIDLLKKLENLDRVVRLFDWELNSDKHTLSVLMEIGESDLEKILTYRLNAEDARFDINFTRYYWKEMLECVQAVHDHNIVHSDLKPANFLLVQGRLKLIDFGIANAIQDNTVNVHREQQVGTPNYMSPEALVDSNASLGLP-ASVGKMMKLGKPSDVWSLGCILYKMVYGQPPFAKIAKYYERILAIPNPHVKIDFPAFGVGGVPVPPGLVRTLKRCLQRDQTLRPTVEELLGQR--DPFLYPDAQLEGAV-----------PVTQDMLNRILVNVV"
+        }
+      ]
+    },
+    {
+      "hit_num": 196,
       "hit_def": "TR:H6BQM3 H6BQM3_EXODN Ser/Thr protein kinase MPS1 (Regulatory cell proliferation kinase 1) OS=Exophiala dermatitidis (strain ATCC 34100 / CBS 525.76 / NIH/UT8656) OX=858893 GN=HMPREF1120_02021 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "H6BQM3_EXODN",
@@ -8054,7 +8083,7 @@
       ]
     },
     {
-      "hit_num": 196,
+      "hit_num": 197,
       "hit_def": "TR:A0A5N6TV29 A0A5N6TV29_9EURO Kinase-like domain-containing protein OS=Aspergillus avenaceus OX=36643 GN=BDV25DRAFT_155313 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A5N6TV29_9EURO",
@@ -8095,7 +8124,7 @@
       ]
     },
     {
-      "hit_num": 197,
+      "hit_num": 198,
       "hit_def": "TR:A0A9N9M4R3 A0A9N9M4R3_9HELO Protein kinase domain-containing protein OS=Hymenoscyphus albidus OX=595503 GN=HYALB_00004200 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9N9M4R3_9HELO",
@@ -8136,7 +8165,7 @@
       ]
     },
     {
-      "hit_num": 198,
+      "hit_num": 199,
       "hit_def": "TR:A0A6A6J5V7 A0A6A6J5V7_WESOR Kinase-like protein OS=Westerdykella ornata OX=318751 GN=EI97DRAFT_446161 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A6A6J5V7_WESOR",
@@ -8177,7 +8206,7 @@
       ]
     },
     {
-      "hit_num": 199,
+      "hit_num": 200,
       "hit_def": "TR:A0A319DTS9 A0A319DTS9_ASPSB Checkpoint protein kinase OS=Aspergillus sclerotiicarbonarius (strain CBS 121057 / IBT 28362) OX=1448318 GN=BO78DRAFT_401509 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A319DTS9_ASPSB",
@@ -8218,7 +8247,7 @@
       ]
     },
     {
-      "hit_num": 200,
+      "hit_num": 201,
       "hit_def": "TR:A0A8H8CT23 A0A8H8CT23_AJECA Dual specificity protein kinase OS=Ajellomyces capsulatus OX=5037 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8H8CT23_AJECA",
@@ -8259,7 +8288,7 @@
       ]
     },
     {
-      "hit_num": 201,
+      "hit_num": 202,
       "hit_def": "TR:A0A9W9JKQ8 A0A9W9JKQ8_9EURO Protein kinase domain-containing protein OS=Penicillium cinerascens OX=70096 GN=N7498_006973 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9W9JKQ8_9EURO",
@@ -8300,7 +8329,7 @@
       ]
     },
     {
-      "hit_num": 202,
+      "hit_num": 203,
       "hit_def": "TR:A0A9W9TF22 A0A9W9TF22_9EURO Protein kinase domain-containing protein OS=Penicillium chermesinum OX=63820 GN=N7468_009228 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9W9TF22_9EURO",
@@ -8341,7 +8370,7 @@
       ]
     },
     {
-      "hit_num": 203,
+      "hit_num": 204,
       "hit_def": "TR:A0A3N2PMA0 A0A3N2PMA0_9PEZI Kinase-like protein OS=Sodiomyces alkalinus F11 OX=1314773 GN=SODALDRAFT_328970 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A3N2PMA0_9PEZI",
@@ -8382,7 +8411,7 @@
       ]
     },
     {
-      "hit_num": 204,
+      "hit_num": 205,
       "hit_def": "TR:A0A9W9P1T0 A0A9W9P1T0_PENCI Protein kinase domain-containing protein OS=Penicillium citrinum OX=5077 GN=N7469_005555 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9W9P1T0_PENCI",
@@ -8423,7 +8452,7 @@
       ]
     },
     {
-      "hit_num": 205,
+      "hit_num": 206,
       "hit_def": "TR:A0A9W9SFX6 A0A9W9SFX6_9EURO Protein kinase domain-containing protein OS=Penicillium cataractarum OX=2100454 GN=N7496_004689 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9W9SFX6_9EURO",
@@ -8464,7 +8493,7 @@
       ]
     },
     {
-      "hit_num": 206,
+      "hit_num": 207,
       "hit_def": "TR:A0A1Q2YEQ5 A0A1Q2YEQ5_9ASCO Protein kinase domain-containing protein OS=Pichia membranifaciens OX=4926 GN=PMKS-001341 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A1Q2YEQ5_9ASCO",
@@ -8505,7 +8534,7 @@
       ]
     },
     {
-      "hit_num": 207,
+      "hit_num": 208,
       "hit_def": "TR:A0A395H7V1 A0A395H7V1_9EURO Checkpoint protein kinase OS=Aspergillus ibericus CBS 121593 OX=1448316 GN=BO80DRAFT_423417 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A395H7V1_9EURO",
@@ -8546,7 +8575,7 @@
       ]
     },
     {
-      "hit_num": 208,
+      "hit_num": 209,
       "hit_def": "TR:A0A7R7VUZ8 A0A7R7VUZ8_ASPCH Dual-specificity kinase, spindle pole body (SPB) duplication and spindle checkpoint function OS=Aspergillus chevalieri OX=182096 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A7R7VUZ8_ASPCH",
@@ -8587,7 +8616,7 @@
       ]
     },
     {
-      "hit_num": 209,
+      "hit_num": 210,
       "hit_def": "TR:A0A084QJN0 A0A084QJN0_STAC4 Protein kinase domain-containing protein OS=Stachybotrys chlorohalonata (strain IBT 40285) OX=1283841 GN=S40285_00855 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A084QJN0_STAC4",
@@ -8609,7 +8638,7 @@
           "hsp_num": 1,
           "hsp_score": 719,
           "hsp_bit_score": 281.567,
-          "hsp_expect": 2.7e-79,
+          "hsp_expect": 2.6e-79,
           "hsp_align_len": 332,
           "hsp_identity": 47.6,
           "hsp_positive": 63.0,
@@ -8628,7 +8657,7 @@
       ]
     },
     {
-      "hit_num": 210,
+      "hit_num": 211,
       "hit_def": "TR:A1D7N9 A1D7N9_NEOFI Checkpoint protein kinase, putative OS=Neosartorya fischeri (strain ATCC 1020 / DSM 3700 / CBS 544.65 / FGSC A1164 / JCM 1740 / NRRL 181 / WB 181) OX=331117 GN=NFIA_069040 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A1D7N9_NEOFI",
@@ -8669,7 +8698,7 @@
       ]
     },
     {
-      "hit_num": 211,
+      "hit_num": 212,
       "hit_def": "TR:A0A1L9PF69 A0A1L9PF69_ASPVE Protein kinase domain-containing protein OS=Aspergillus versicolor CBS 583.65 OX=1036611 GN=ASPVEDRAFT_39585 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A1L9PF69_ASPVE",
@@ -8710,7 +8739,7 @@
       ]
     },
     {
-      "hit_num": 212,
+      "hit_num": 213,
       "hit_def": "TR:A0A0F7TNC5 A0A0F7TNC5_PENBI Putative Dual specificity serine/threonine and tyrosine kinase OS=Penicillium brasilianum OX=104259 GN=PMG11_06061 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A0F7TNC5_PENBI",
@@ -8732,7 +8761,7 @@
           "hsp_num": 1,
           "hsp_score": 718,
           "hsp_bit_score": 281.182,
-          "hsp_expect": 3.2e-79,
+          "hsp_expect": 3.1e-79,
           "hsp_align_len": 327,
           "hsp_identity": 44.6,
           "hsp_positive": 64.8,
@@ -8751,7 +8780,7 @@
       ]
     },
     {
-      "hit_num": 213,
+      "hit_num": 214,
       "hit_def": "TR:A0AA40CBC8 A0AA40CBC8_9PEZI Kinase-like domain-containing protein OS=Immersiella caudata OX=314043 GN=B0T14DRAFT_417533 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0AA40CBC8_9PEZI",
@@ -8792,7 +8821,7 @@
       ]
     },
     {
-      "hit_num": 214,
+      "hit_num": 215,
       "hit_def": "TR:A0A9W9W0Y8 A0A9W9W0Y8_9EURO Protein kinase domain-containing protein OS=Penicillium cosmopolitanum OX=1131564 GN=N7509_004651 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9W9W0Y8_9EURO",
@@ -8833,7 +8862,7 @@
       ]
     },
     {
-      "hit_num": 215,
+      "hit_num": 216,
       "hit_def": "TR:A0A9P4HUE0 A0A9P4HUE0_9PEZI Kinase-like protein OS=Saccharata proteae CBS 121410 OX=1314787 GN=K490DRAFT_40320 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9P4HUE0_9PEZI",
@@ -8874,7 +8903,7 @@
       ]
     },
     {
-      "hit_num": 216,
+      "hit_num": 217,
       "hit_def": "TR:A0A8H6QQN3 A0A8H6QQN3_9EURO Protein kinase domain-containing protein OS=Aspergillus felis OX=1287682 GN=CNMCM7691_005297 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8H6QQN3_9EURO",
@@ -8915,7 +8944,7 @@
       ]
     },
     {
-      "hit_num": 217,
+      "hit_num": 218,
       "hit_def": "TR:A0A2C5WID3 A0A2C5WID3_9PEZI Serine/threonine-protein kinase MPS1 OS=Ceratocystis fimbriata CBS 114723 OX=1035309 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A2C5WID3_9PEZI",
@@ -8937,7 +8966,7 @@
           "hsp_num": 1,
           "hsp_score": 720,
           "hsp_bit_score": 281.952,
-          "hsp_expect": 4.9e-79,
+          "hsp_expect": 4.8e-79,
           "hsp_align_len": 338,
           "hsp_identity": 46.2,
           "hsp_positive": 62.4,
@@ -8956,7 +8985,7 @@
       ]
     },
     {
-      "hit_num": 218,
+      "hit_num": 219,
       "hit_def": "TR:C5FTW3 C5FTW3_ARTOC Serine/threonine-protein kinase MPS1 OS=Arthroderma otae (strain ATCC MYA-4605 / CBS 113480) OX=554155 GN=MCYG_06166 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "C5FTW3_ARTOC",
@@ -8978,7 +9007,7 @@
           "hsp_num": 1,
           "hsp_score": 715,
           "hsp_bit_score": 280.026,
-          "hsp_expect": 4.9e-79,
+          "hsp_expect": 4.8e-79,
           "hsp_align_len": 441,
           "hsp_identity": 37.9,
           "hsp_positive": 56.9,
@@ -8997,7 +9026,7 @@
       ]
     },
     {
-      "hit_num": 219,
+      "hit_num": 220,
       "hit_def": "TR:A0A1E3B0H5 A0A1E3B0H5_ASPCR Protein kinase domain-containing protein OS=Aspergillus cristatus OX=573508 GN=SI65_10160 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A1E3B0H5_ASPCR",
@@ -9038,7 +9067,7 @@
       ]
     },
     {
-      "hit_num": 220,
+      "hit_num": 221,
       "hit_def": "TR:A0A9P4R9F1 A0A9P4R9F1_9PLEO Kinase-like protein OS=Polyplosphaeria fusca OX=682080 GN=EJ04DRAFT_540892 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9P4R9F1_9PLEO",
@@ -9079,7 +9108,7 @@
       ]
     },
     {
-      "hit_num": 221,
+      "hit_num": 222,
       "hit_def": "TR:A0AA39YQP1 A0AA39YQP1_9PEZI Kinase-like domain-containing protein OS=Cercophora newfieldiana OX=92897 GN=B0T16DRAFT_487085 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0AA39YQP1_9PEZI",
@@ -9101,7 +9130,7 @@
           "hsp_num": 1,
           "hsp_score": 720,
           "hsp_bit_score": 281.952,
-          "hsp_expect": 5.2e-79,
+          "hsp_expect": 5.1e-79,
           "hsp_align_len": 387,
           "hsp_identity": 42.1,
           "hsp_positive": 62.0,
@@ -9120,7 +9149,7 @@
       ]
     },
     {
-      "hit_num": 222,
+      "hit_num": 223,
       "hit_def": "TR:A0A3F3PS02 A0A3F3PS02_9EURO Kinase-like domain-containing protein OS=Aspergillus welwitschiae OX=1341132 GN=BDQ94DRAFT_182020 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A3F3PS02_9EURO",
@@ -9142,7 +9171,7 @@
           "hsp_num": 1,
           "hsp_score": 717,
           "hsp_bit_score": 280.796,
-          "hsp_expect": 5.2e-79,
+          "hsp_expect": 5.1e-79,
           "hsp_align_len": 364,
           "hsp_identity": 41.5,
           "hsp_positive": 61.8,
@@ -9161,7 +9190,7 @@
       ]
     },
     {
-      "hit_num": 223,
+      "hit_num": 224,
       "hit_def": "TR:A0A0J8UQF9 A0A0J8UQF9_COCIT Phosphorylase b kinase gamma catalytic chain OS=Coccidioides immitis H538.4 OX=396776 GN=CIHG_07817 PE=3 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A0J8UQF9_COCIT",
@@ -9202,7 +9231,7 @@
       ]
     },
     {
-      "hit_num": 224,
+      "hit_num": 225,
       "hit_def": "TR:A0A6A5WFB2 A0A6A5WFB2_9PLEO Kinase-like protein OS=Amniculicola lignicola CBS 123094 OX=1392246 GN=P154DRAFT_523268 PE=3 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A6A5WFB2_9PLEO",
@@ -9243,7 +9272,7 @@
       ]
     },
     {
-      "hit_num": 225,
+      "hit_num": 226,
       "hit_def": "TR:A0A8H7YI15 A0A8H7YI15_9EURO Dual specificity protein kinase OS=Histoplasma ohiense (nom. inval.) OX=2902605 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8H7YI15_9EURO",
@@ -9284,7 +9313,7 @@
       ]
     },
     {
-      "hit_num": 226,
+      "hit_num": 227,
       "hit_def": "TR:A0A1Y1ZWE1 A0A1Y1ZWE1_9PLEO Kinase-like domain-containing protein OS=Clohesyomyces aquaticus OX=1231657 GN=BCR34DRAFT_585759 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A1Y1ZWE1_9PLEO",
@@ -9325,7 +9354,7 @@
       ]
     },
     {
-      "hit_num": 227,
+      "hit_num": 228,
       "hit_def": "TR:A0A8H3EPY7 A0A8H3EPY7_9LECA Dual-specificity kinase, spindle pole body (SPB) duplication and spindle checkpoint function OS=Heterodermia speciosa OX=116794 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8H3EPY7_9LECA",
@@ -9347,7 +9376,7 @@
           "hsp_num": 1,
           "hsp_score": 716,
           "hsp_bit_score": 280.411,
-          "hsp_expect": 6.6e-79,
+          "hsp_expect": 6.5e-79,
           "hsp_align_len": 327,
           "hsp_identity": 45.6,
           "hsp_positive": 66.4,
@@ -9366,7 +9395,7 @@
       ]
     },
     {
-      "hit_num": 228,
+      "hit_num": 229,
       "hit_def": "TR:A0A1L9V7F4 A0A1L9V7F4_ASPGL Protein kinase domain-containing protein OS=Aspergillus glaucus CBS 516.65 OX=1160497 GN=ASPGLDRAFT_135829 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A1L9V7F4_ASPGL",
@@ -9407,7 +9436,7 @@
       ]
     },
     {
-      "hit_num": 229,
+      "hit_num": 230,
       "hit_def": "TR:Q4WX37 Q4WX37_ASPFU Checkpoint protein kinase, putative OS=Aspergillus fumigatus (strain ATCC MYA-4609 / CBS 101355 / FGSC A1100 / Af293) OX=330879 GN=AFUA_3G08100 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "Q4WX37_ASPFU",
@@ -9429,7 +9458,7 @@
           "hsp_num": 1,
           "hsp_score": 715,
           "hsp_bit_score": 280.026,
-          "hsp_expect": 7.2e-79,
+          "hsp_expect": 7.1e-79,
           "hsp_align_len": 690,
           "hsp_identity": 30.3,
           "hsp_positive": 47.4,
@@ -9448,7 +9477,7 @@
       ]
     },
     {
-      "hit_num": 230,
+      "hit_num": 231,
       "hit_def": "TR:C9SMK2 C9SMK2_VERA1 Serine/threonine-protein kinase MPS1 OS=Verticillium alfalfae (strain VaMs.102 / ATCC MYA-4576 / FGSC 10136) OX=526221 GN=VDBG_06126 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "C9SMK2_VERA1",
@@ -9470,7 +9499,7 @@
           "hsp_num": 1,
           "hsp_score": 708,
           "hsp_bit_score": 277.33,
-          "hsp_expect": 7.5e-79,
+          "hsp_expect": 7.4e-79,
           "hsp_align_len": 331,
           "hsp_identity": 46.5,
           "hsp_positive": 60.7,
@@ -9489,7 +9518,7 @@
       ]
     },
     {
-      "hit_num": 231,
+      "hit_num": 232,
       "hit_def": "TR:A0A2P4ZP89 A0A2P4ZP89_9HYPO TTK protein kinase OS=Trichoderma gamsii OX=398673 GN=TGAM01_v205063 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A2P4ZP89_9HYPO",
@@ -9511,7 +9540,7 @@
           "hsp_num": 1,
           "hsp_score": 717,
           "hsp_bit_score": 280.796,
-          "hsp_expect": 7.8e-79,
+          "hsp_expect": 7.7e-79,
           "hsp_align_len": 814,
           "hsp_identity": 30.2,
           "hsp_positive": 45.1,
@@ -9530,7 +9559,7 @@
       ]
     },
     {
-      "hit_num": 232,
+      "hit_num": 233,
       "hit_def": "TR:A0A7R7XJ43 A0A7R7XJ43_9EURO Dual-specificity kinase, spindle pole body (SPB) duplication and spindle checkpoint function OS=Aspergillus puulaauensis OX=1220207 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A7R7XJ43_9EURO",
@@ -9571,7 +9600,7 @@
       ]
     },
     {
-      "hit_num": 233,
+      "hit_num": 234,
       "hit_def": "TR:A0A369GKP4 A0A369GKP4_9HYPO Protein kinase domain-containing protein OS=Ophiocordyceps camponoti-leonardi (nom. inval.) OX=2039875 GN=CP532_2565 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A369GKP4_9HYPO",
@@ -9612,7 +9641,7 @@
       ]
     },
     {
-      "hit_num": 234,
+      "hit_num": 235,
       "hit_def": "TR:A0A6A6BQV6 A0A6A6BQV6_9PEZI Protein kinase domain-containing protein OS=Aplosporella prunicola CBS 121167 OX=1176127 GN=K452DRAFT_304464 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A6A6BQV6_9PEZI",
@@ -9634,7 +9663,7 @@
           "hsp_num": 1,
           "hsp_score": 703,
           "hsp_bit_score": 275.404,
-          "hsp_expect": 9.6e-79,
+          "hsp_expect": 9.5e-79,
           "hsp_align_len": 381,
           "hsp_identity": 40.4,
           "hsp_positive": 61.2,
@@ -9653,7 +9682,7 @@
       ]
     },
     {
-      "hit_num": 235,
+      "hit_num": 236,
       "hit_def": "TR:U1HLF3 U1HLF3_ENDPU Protein kinase domain-containing protein OS=Endocarpon pusillum (strain Z07020 / HMAS-L-300199) OX=1263415 GN=EPUS_07782 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "U1HLF3_ENDPU",
@@ -9694,7 +9723,7 @@
       ]
     },
     {
-      "hit_num": 236,
+      "hit_num": 237,
       "hit_def": "TR:Q7SGE4 Q7SGE4_NEUCR Checkpoint protein kinase OS=Neurospora crassa (strain ATCC 24698 / 74-OR23-1A / CBS 708.71 / DSM 1257 / FGSC 987) OX=367110 GN=NCU00978 PE=4 SV=2",
       "hit_db": "TR",
       "hit_id": "Q7SGE4_NEUCR",
@@ -9735,7 +9764,7 @@
       ]
     },
     {
-      "hit_num": 237,
+      "hit_num": 238,
       "hit_def": "TR:G4UAY0 G4UAY0_NEUT9 Kinase-like protein OS=Neurospora tetrasperma (strain FGSC 2509 / P0656) OX=510952 GN=NEUTE2DRAFT_146668 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "G4UAY0_NEUT9",
@@ -9776,7 +9805,7 @@
       ]
     },
     {
-      "hit_num": 238,
+      "hit_num": 239,
       "hit_def": "TR:A0A8H8S1Z2 A0A8H8S1Z2_9HELO Serine/threonine-protein kinase OS=Lachnellula subtilissima OX=602034 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8H8S1Z2_9HELO",
@@ -9817,7 +9846,7 @@
       ]
     },
     {
-      "hit_num": 239,
+      "hit_num": 240,
       "hit_def": "TR:A0A9P3BV95 A0A9P3BV95_ASPVI Dual-specificity kinase, spindle pole body (SPB) duplication and spindle checkpoint function OS=Aspergillus viridinutans OX=75553 GN=Aspvir_005295 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9P3BV95_ASPVI",
@@ -9858,7 +9887,7 @@
       ]
     },
     {
-      "hit_num": 240,
+      "hit_num": 241,
       "hit_def": "TR:A0A9W9LFC9 A0A9W9LFC9_9EURO Protein kinase domain-containing protein OS=Penicillium canariense OX=189055 GN=N7482_009874 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9W9LFC9_9EURO",
@@ -9899,7 +9928,7 @@
       ]
     },
     {
-      "hit_num": 241,
+      "hit_num": 242,
       "hit_def": "TR:A0A6A5VF01 A0A6A5VF01_9PLEO Kinase-like protein OS=Bimuria novae-zelandiae CBS 107.79 OX=1447943 GN=BU23DRAFT_503048 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A6A5VF01_9PLEO",
@@ -9940,7 +9969,7 @@
       ]
     },
     {
-      "hit_num": 242,
+      "hit_num": 243,
       "hit_def": "TR:A0A317X291 A0A317X291_9EURO Checkpoint protein kinase OS=Aspergillus heteromorphus CBS 117.55 OX=1448321 GN=BO70DRAFT_282135 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A317X291_9EURO",
@@ -9981,7 +10010,7 @@
       ]
     },
     {
-      "hit_num": 243,
+      "hit_num": 244,
       "hit_def": "TR:A0A9W9GC45 A0A9W9GC45_9EURO Protein kinase domain-containing protein OS=Penicillium angulare OX=116970 GN=N7456_000427 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9W9GC45_9EURO",
@@ -10022,7 +10051,7 @@
       ]
     },
     {
-      "hit_num": 244,
+      "hit_num": 245,
       "hit_def": "TR:A0A8T9BM63 A0A8T9BM63_9HELO Serine/threonine-protein kinase MPS1 OS=Lachnellula arida OX=1316785 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A8T9BM63_9HELO",
@@ -10063,7 +10092,7 @@
       ]
     },
     {
-      "hit_num": 245,
+      "hit_num": 246,
       "hit_def": "TR:A0A9W9G3F9 A0A9W9G3F9_9EURO Protein kinase domain-containing protein OS=Penicillium argentinense OX=1131581 GN=N7532_001965 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A9W9G3F9_9EURO",
@@ -10104,7 +10133,7 @@
       ]
     },
     {
-      "hit_num": 246,
+      "hit_num": 247,
       "hit_def": "TR:J3K3Q2 J3K3Q2_COCIM TTK protein kinase OS=Coccidioides immitis (strain RS) OX=246410 GN=CIMG_07588 PE=4 SV=2",
       "hit_db": "TR",
       "hit_id": "J3K3Q2_COCIM",
@@ -10145,7 +10174,7 @@
       ]
     },
     {
-      "hit_num": 247,
+      "hit_num": 248,
       "hit_def": "TR:A0A1Q5TBE7 A0A1Q5TBE7_9EURO Serine/threonine-protein kinase mph1 OS=Penicillium subrubescens OX=1316194 GN=PENSUB_10360 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A1Q5TBE7_9EURO",
@@ -10186,7 +10215,7 @@
       ]
     },
     {
-      "hit_num": 248,
+      "hit_num": 249,
       "hit_def": "TR:A0A4S3JMY5 A0A4S3JMY5_9EURO Dual-specificity kinase, spindle pole body (SPB) duplication and spindle checkpoint function OS=Aspergillus tanneri OX=1220188 GN=MPS1 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "A0A4S3JMY5_9EURO",
@@ -10227,7 +10256,7 @@
       ]
     },
     {
-      "hit_num": 249,
+      "hit_num": 250,
       "hit_def": "TR:C1GQA0 C1GQA0_PARBA Serine/threonine-protein kinase PAK 2 OS=Paracoccidioides lutzii (strain ATCC MYA-826 / Pb01) OX=502779 GN=PAAG_00695 PE=4 SV=1",
       "hit_db": "TR",
       "hit_id": "C1GQA0_PARBA",
@@ -10264,47 +10293,6 @@
           "hsp_qseq": "HRPAPKPPVTKKVEIVEP---AKSASLSNNRNIITVNDSQYEKIELLGRGGSSRVYKVKGSGNRVYALKRVSFDAFDDSSIDGFKGEIELLEKLKDQKRVIQLLDYEMGDG--LLYLIMECGDHDLSQILNQRSGMP---LDFNFVRFYTKEMLLCIKVVHDAGIVHSDLKPANFVLVKGILKIIDFGIANAVPEHTVNIYRETQIGTPNYMAPEALVAMNYTQNSENQHEGNKWKVGRPSDMWSCGCIIYQMIYGKPPYGSF-QGQNRLLAIMNPDVKIPFPEHTSNNEKIPKSAIELMKACLYRNPDKRWTVDKVLSSTFLQPFMISGSIMEDLI",
           "hsp_mseq": "HRPAP PP    +E       A S+     R  +T+N   + +++ +GRGGSS+VY+V     +++ALKRV+ +  D  ++ G+KGEI+LL++L++  RV++L DYE+ +    L ++ME G+ DL +IL  R        D  F R+Y KEML C++ VH+ GIVHSDLKPANFVLVKG LK+IDFGIAN + + TVN++RE QIGTPNYMAPE+L+ +N T N      G   KVG+PSD+WS GCI+YQM+YGKPP+    +   R++AI NP+V I +P +      +P   I+ +K CL R+   R TV ++L+     PF+   + +E  +",
           "hsp_hseq": "HRPAPPPPKMSVLETATAPAGANSSQARRKRVQVTINRKPFTRLDCIGRGGSSKVYRVMAENCKIFALKRVNLEDVDPIAMAGYKGEIDLLKRLENVDRVVRLFDYEVNEEKQALSVLMEIGESDLYRILTLRLNAEDAVFDTAFTRYYWKEMLECVQAVHEFGIVHSDLKPANFVLVKGSLKLIDFGIANKIQDDTVNVHREQQIGTPNYMAPESLIDINAT-NGLPSTVGKMMKVGKPSDVWSLGCILYQMVYGKPPFAHITKPLERIMAIPNPNVIIEYPAYGVGGVPVPPGLIKTLKRCLQRDQTLRPTVQELLAQR--DPFLYPEANLEGAV"
-        }
-      ]
-    },
-    {
-      "hit_num": 250,
-      "hit_def": "TR:A0A317VAQ2 A0A317VAQ2_9EURO Checkpoint protein kinase OS=Aspergillus sclerotioniger CBS 115572 OX=1450535 GN=BO94DRAFT_539803 PE=4 SV=1",
-      "hit_db": "TR",
-      "hit_id": "A0A317VAQ2_9EURO",
-      "hit_acc": "A0A317VAQ2",
-      "hit_desc": "Checkpoint protein kinase OS=Aspergillus sclerotioniger CBS 115572 OX=1450535 GN=BO94DRAFT_539803 PE=4 SV=1",
-      "hit_url": "https://www.uniprot.org/uniprot/A0A317VAQ2",
-      "hit_xref_url": "https://www.ebi.ac.uk/ebisearch/search.ebi?db=uniprot&query=A0A317VAQ2",
-      "hit_dbfetch_url": "https://www.ebi.ac.uk/Tools/dbfetch/dbfetch?style=raw;db=uniprot;id=A0A317VAQ2",
-      "hit_os": "Aspergillus sclerotioniger CBS 115572",
-      "hit_uni_de": "Checkpoint protein kinase",
-      "hit_uni_os": "Aspergillus sclerotioniger CBS 115572",
-      "hit_uni_ox": "1450535",
-      "hit_uni_gn": "BO94DRAFT_539803",
-      "hit_uni_pe": "4",
-      "hit_uni_sv": "1",
-      "hit_len": 818,
-      "hit_hsps": [
-        {
-          "hsp_num": 1,
-          "hsp_score": 711,
-          "hsp_bit_score": 278.485,
-          "hsp_expect": 1.8e-78,
-          "hsp_align_len": 364,
-          "hsp_identity": 40.7,
-          "hsp_positive": 61.8,
-          "hsp_gaps": 7,
-          "hsp_query_frame": "0",
-          "hsp_hit_frame": "0",
-          "hsp_strand": "none/none",
-          "hsp_query_from": 403,
-          "hsp_query_to": 756,
-          "hsp_hit_from": 436,
-          "hsp_hit_to": 785,
-          "hsp_qseq": "HRPAPKPPVTKKVEIVEPAKSASLSNN----RNIITVNDSQYEKIELLGRGGSSRVYKVKGSGNRVYALKRVSFDAFDDSSIDGFKGEIELLEKLKDQKRVIQLLDYEMGDG--LLYLIMECGDHDLSQILNQRSGMP---LDFNFVRFYTKEMLLCIKVVHDAGIVHSDLKPANFVLVKGILKIIDFGIANAVPEHTVNIYRETQIGTPNYMAPEALVAMNYTQNSENQHEGNKWKVGRPSDMWSCGCIIYQMIYGKPPYGSF-QGQNRLLAIMNPDVKIPFPEHTSNNEKIPKSAIELMKACLYRNPDKRWTVDKVLSSTFLQPFMISGSIMEDLIRNAVRYGSEKPHISQDDLNDVVDTVL",
-          "hsp_mseq": "HRPAP PP    +E       A+ +++    RN ++VN   + +++ +GRGGSSRVY+V     +++ALKRV+ +  D  ++ G+KGEI+LL+KL++  RV++L D+E+      L ++ME G+ DL +IL  +        D NF R+Y KEML C++ VH+  +VHSDLKPANF+LV+G LK+IDFGIANA+ ++TVN++RE Q+GTPNYM+PEAL+  N +        G   K+G+PSD+WS GCI+Y+M+YG+PP+    +   R+LAI NP VKI FP        +P   +  +K CL R+   R TV+++L      PF+   + +E  +            ++QD LN ++  V+",
-          "hsp_hseq": "HRPAPPPPKMSVLETATATGGAATASHSRKKRNQVSVNHKPFTRLDCVGRGGSSRVYRVMAENYKIFALKRVNLEDVDPITLAGYKGEIDLLKKLENLDRVVRLFDWELNQDKHTLSVLMEIGESDLEKILTYKLNAEDARFDINFTRYYWKEMLECVQAVHEHNVVHSDLKPANFLLVQGRLKLIDFGIANAIQDNTVNVHREQQVGTPNYMSPEALIDSNASLGLP-ASVGKMMKLGKPSDVWSLGCILYKMVYGQPPFAKIAKYYERILAIPNPHVKIDFPAFGVGGVPVPPGLVRTLKGCLQRDQTLRPTVEELLGQR--DPFLYPDAQLEGAV-----------PVTQDMLNRILVNVV"
         }
       ]
     }
