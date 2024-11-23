@@ -6,7 +6,7 @@ class SequenceDatabase(Protocol):
     def lookup(self, entry: str) -> str:
         """Given protein entry, returns FASTA format"""
 
-    def lookup(self, entry_list: List[str]) -> str:
+    def lookup_many(self, entry_list: List[str]) -> str:
         """Given protein entry array, returns FASTA format"""
 
 
