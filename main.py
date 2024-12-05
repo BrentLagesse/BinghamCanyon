@@ -20,28 +20,34 @@ from classes import (
 
 PRO_MODEL = AlphaFoldRESTAPI()
 
-chimerax = Chimerax("C:\\Program Files\\ChimeraX 1.8\\bin\chimerax.exe", True)
+# chimerax = Chimerax("C:\\Program Files\\ChimeraX 1.8\\bin\chimerax.exe", True)
+chimerax = Chimerax("/Applications/ChimeraX-1.9-rc2024.12.03.app/Contents/MacOS/ChimeraX", False)
 
 DB_fetch = DBFetch(is_individually_retrieved=True)
-SSS = NCIBlASTPlus(
-    job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
-    sequence_database=DB_fetch,
-    check_delay=10,
-)
-# SSS = NCIBlastPlusParseTest(
+# SSS = NCIBlASTPlus(
 #     job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
 #     sequence_database=DB_fetch,
 #     check_delay=10,
 # )
+SSS = NCIBlastPlusParseTest(
+    job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
+    sequence_database=DB_fetch,
+    check_delay=10,
+)
 # SSS = SSSTest(sequence_database=DB_fetch)
 MSA = ClustalOmega(job_dispatcher=JobDispatcherRESTAPI("clustalo"), check_delay=5)
+# jalview = Jalview(
+#     exe_path="C:\\Users\\chhor\\AppData\\Local\\Jalview\\bin\\jalview.bat",
+#     is_window=True,
+# )
 jalview = Jalview(
-    exe_path="C:\\Users\\chhor\\AppData\\Local\\Jalview\\bin\\jalview.bat",
+    exe_path="/Applications/Jalview.app/Contents/MacOS/JavaApplicationStub",
     is_window=True,
 )
 
 INPUT_MODE = False
 output_folder_path = Path("output")
+output_folder_path.mkdir(parents=True, exist_ok=True)
 
 
 def main():
