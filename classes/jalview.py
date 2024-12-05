@@ -2,7 +2,7 @@ from pathlib import Path
 import subprocess
 
 class Jalview():
-    
+
     """To do: handle different OS"""
     exe_path : str
     is_window : bool
@@ -13,4 +13,3 @@ class Jalview():
         
     def open(self, ebi_url :str = ''):
         subprocess.Popen([self.exe_path, ebi_url], shell = self.is_window)
-        

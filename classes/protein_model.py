@@ -3,38 +3,47 @@ from classes.job_dispatcher import JobDispatcher
 from pathlib import Path
 import requests
 import os
+
+
 class ProteinModel(Protocol):
-    """"Given DNA Sequeunce, finds similar DNA sequeunce from database"""
-    def run(self, unique_id :str, output_folder : Path) -> tuple[str, Path]:
+    """ "Given DNA Sequeunce, finds similar DNA sequeunce from database"""
+
+    def run(self, unique_id: str, output_folder: Path) -> tuple[str, Path]:
         """Runs and puts all model files in output_folder and returns Protein Sequence"""
-        
+
+
 # https://alphafold.ebi.ac.uk/api-docs
 class AlphaFoldRESTAPI(ProteinModel):
-    def run(self, unique_id :str, output_folder : Path) -> tuple[str, Path]:
+    def run(self, unique_id: str, output_folder: Path) -> tuple[str, Path]:
         headers = {
-        'accept': 'application/json',
+            "accept": "application/json",
         }
         params = {
             # api key might be private unique, so not publishing it on github
-            'key': os.environ.get('ALPHA_FOLD_API_KEY='),
+            "key": os.environ.get("ALPHA_FOLD_API_KEY="),
         }
-
-        response = requests.get(f'https://alphafold.ebi.ac.uk/api/prediction/{unique_id}', params=params, headers=headers)
-        # response returns a length=1 dict 
-        print(response.status_code)
-        if response.status_code != 200 :
+        # response returns a length=1 dict
+        print("PROCESS: Fetching AlphaFold Model")
+        response = requests.get(
+            f"https://alphafold.ebi.ac.uk/api/prediction/{unique_id}",
+            params=params,
+            headers=headers,
+        )
+        if response.status_code != 200:
             raise Exception("Protein not found")
         data = response.json()[0]
         output_folder.mkdir(parents=True, exist_ok=True)
-        model_path = output_folder / "test.cif"
+        model_path = output_folder / "protien_model.cif"
         with open(str(model_path), "wb") as f:
-            f.write(requests.get(data['cifUrl']).content)
+            f.write(requests.get(data["cifUrl"]).content)
         # TODO: save image
-        
-        print(data)
+        print("COMPLETE: AlphaFold Model")
         # fasta_format is missing first 2 letters like sp/tr but shouldn't matter
-        return data['uniprotSequence'], model_path
+        return data["uniprotSequence"], model_path
+
     # Example of API response
+
+
 """"[
   {
     "entryId": "AF-P54199-F1",
