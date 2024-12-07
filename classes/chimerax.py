@@ -26,7 +26,9 @@ class Chimerax:
     def open(self, model_path: str = ""):
         # if model_path == '':
         model = Path().resolve() / model_path
-        subprocess.Popen([self.exe_path, model], shell=self.is_window)
+        path = Path("chimerax_scripts") / "automate_conservation.py"
+        python_script = str(path)
+        subprocess.Popen([self.exe_path, model, python_script], shell=self.is_window)
 
 
 # "Program Files\ChimeraX 1.8\bin\chimerax.exe" --stereo --start
