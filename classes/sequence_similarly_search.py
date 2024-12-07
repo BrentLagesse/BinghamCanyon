@@ -7,14 +7,14 @@ import json
 
 
 class SequenceSimilarlySearch(Protocol):
-    """ "Given DNA Sequence, finds similar DNA sequence from database"""
+    """Given DNA Sequence, finds similar DNA sequence from database"""
 
     def run(self, seq: str, settings: any) -> tuple[Path, str]:
         """Runs and returns Similarly DNA sequence
 
         Args:
             seq (str): RNA sequence
-            settings (any): TODO:
+            settings (any): TODO: figure out what settings should be
 
         Returns:
             tuple[Path, str]: Path = path of unparsed SSS result. str = job id
@@ -143,21 +143,19 @@ class NCIBlASTPlus(SequenceSimilarlySearch):
                 entry_list=uniprot_entries
             )
             fasta_format = ""
-            print(header)
-            print("protein Seq =", protein_sequence_arr)
             for i, protein_sequence in enumerate(protein_sequence_arr):
-                print(protein_sequence)
-                # replaced spaces because anyrthing after spaces gets deleted
+                # replaced spaces because anything after spaces gets deleted
                 fasta_format += (
                     header[i].replace(" ", "~") + "\n" + protein_sequence + "\n"
                 )
+            # TODO: gets rid of last \n
             fasta_path = Path("output/sss_fasta_format" + ".fasta")
             fasta_path.write_text(fasta_format)
             print(f"COMPLETE: Parsing Sequence Similarly Search (Blast)'s data")
             return fasta_path
 
 
-class SSSParseTest(SequenceSimilarlySearch):
+class SSSTest(SequenceSimilarlySearch):
     sequence_database: SequenceDatabase
 
     def __init__(
