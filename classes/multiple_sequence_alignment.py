@@ -2,12 +2,14 @@ from typing import Protocol
 from classes.job_dispatcher import JobDispatcher
 import time
 from pathlib import Path
+import requests
+import json
 
 
 class MultipleSequenceAlignment(Protocol):
     """ "Given DNA sequence, finds similar DNA sequence from database"""
 
-    def run(self, seq: str, settings: any) -> str:
+    def run(self, seq: str, settings: any) -> tuple[Path, str]:
         """Runs and returns url for JalView to open. Also creates .aln file that will be used in UCSFX"""
 
 
@@ -23,7 +25,7 @@ class ClustalOmega(MultipleSequenceAlignment):
         self.job_dispatcher = job_dispatcher
         self.check_delay = check_delay
 
-    def run(self, seq_path: Path, settings: any) -> str:
+    def run(self, seq_path: Path, settings: any) -> tuple[Path, str]:
         # print(f"PROGRESS: multiple_sequence_alignment (ClustalOmega): job_id")
         seq = seq_path.read_text(encoding="utf-8")
         parameter = {
@@ -40,4 +42,8 @@ class ClustalOmega(MultipleSequenceAlignment):
             if time_waited >= 1 * 60:
                 raise Exception("ClustalOmega took too long")
         result_url = f"https://www.ebi.ac.uk/Tools/services/rest/clustalo/result/{job_id}/aln-clustal_num"
-        return result_url
+        response = requests.get(result_url)
+        aligned_seq = response.text
+        aln_path = Path("output/aligned_sequence" + ".aln")
+        aln_path.write_text(json.dumps(aligned_seq, indent=2))
+        return aln_path, result_url
