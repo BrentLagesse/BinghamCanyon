@@ -26,16 +26,16 @@ jalview = Jalview(
 seq_db = DBFetch(
     is_individually_retrieved=conf.sequence_database.db_fetch.is_individually_retrieved
 )
-SSS = NCIBlASTPlus(
-    job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
-    sequence_database=seq_db,
-    check_delay=conf.sequence_similarly_search.nci_blast_plus.check_delay,
-)
-# SSS = NCIBlastPlusParseTest(
+# SSS = NCIBlASTPlus(
 #     job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
 #     sequence_database=seq_db,
 #     check_delay=conf.sequence_similarly_search.nci_blast_plus.check_delay,
 # )
+SSS = NCIBlastPlusParseTest(
+    job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
+    sequence_database=seq_db,
+    check_delay=conf.sequence_similarly_search.nci_blast_plus.check_delay,
+)
 # SSS = SSSTest(sequence_database=seq_db)
 MSA = ClustalOmega(
     job_dispatcher=JobDispatcherRESTAPI("clustalo"),
@@ -47,7 +47,6 @@ output_folder_path = Path(conf.output_folder)
 
 
 def main():
-    print(conf.input_mode)
     # Iterate through all files in the folder and delete them
     for file in output_folder_path.iterdir():
         if file.is_file():
@@ -69,7 +68,7 @@ def main():
         max_entries=conf.sequence_similarly_search.parse.max_entries,
     )
     # aligns DNA and returns jalview url
-    jalview_url = MSA.run(sss_fasta_path, settings="NOT YET IMPLEMENTED")
+    aln_path, jalview_url = MSA.run(sss_fasta_path, settings="NOT YET IMPLEMENTED")
     print(jalview_url)
     jalview.open(jalview_url)
     chimerax.open(model_path)
