@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import sys
 
 from classes import (
     NCIBlASTPlus,
@@ -26,16 +27,16 @@ jalview = Jalview(
 seq_db = DBFetch(
     is_individually_retrieved=conf.sequence_database.db_fetch.is_individually_retrieved
 )
-SSS = NCIBlASTPlus(
-    job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
-    sequence_database=seq_db,
-    check_delay=conf.sequence_similarly_search.nci_blast_plus.check_delay,
-)
-# SSS = NCIBlastPlusParseTest(
+# SSS = NCIBlASTPlus(
 #     job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
 #     sequence_database=seq_db,
 #     check_delay=conf.sequence_similarly_search.nci_blast_plus.check_delay,
 # )
+SSS = NCIBlastPlusParseTest(
+    job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
+    sequence_database=seq_db,
+    check_delay=conf.sequence_similarly_search.nci_blast_plus.check_delay,
+)
 # SSS = SSSTest(sequence_database=seq_db)
 MSA = ClustalOmega(
     job_dispatcher=JobDispatcherRESTAPI("clustalo"),
@@ -63,6 +64,10 @@ def main():
     )
     # Finds similar dna sequeunce and returns FASTA format of similar proteins
     sss_result_path, sss_job_id = SSS.run(seq, settings="NOT YET IMPLEMENTED")
+    
+    #write job ID to err so it can be used in display
+    sys.stderr.write(f"JOB ID: {sss_job_id}")
+
     sss_fasta_path = SSS.parse(
         sss_result_path=sss_result_path,
         target_match=conf.sequence_similarly_search.parse.target_match,
@@ -71,6 +76,11 @@ def main():
     # aligns DNA and returns jalview url
     jalview_url = MSA.run(sss_fasta_path, settings="NOT YET IMPLEMENTED")
     print(jalview_url)
+
+    #write urls to stderr so they can be used in display
+    sys.stderr.write(f"MODEL PATH: {model_path}")
+    sys.stderr.write(f"JALVIEW URL: {jalview_url}")
+
     jalview.open(jalview_url)
     chimerax.open(model_path)
 
