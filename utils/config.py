@@ -1,5 +1,6 @@
 import json
 from typing import TypedDict
+from pathlib import Path
 
 # TODO: Adding typing
 # Python it is really hard to add typing
@@ -27,7 +28,10 @@ from typing import TypedDict
 
 
 # Reads config.json
-# Copied from https://stackoverflow.com/questions/19078170/how-would-you-save-a-simple-settings-configuration-file-in-python
+# TODO: Make into a instance class so reset doesn't have to take in a dictionary and return
+# Modified version of  https://stackoverflow.com/questions/19078170/how-would-you-save-a-simple-settings-configuration-file-in-python
+
+
 class Dict(dict):
     """dot.notation access to dictionary attributes"""
 
@@ -37,6 +41,7 @@ class Dict(dict):
 
 
 class Config(object):
+    # TODO: Change to use pathlib
     @staticmethod
     def __load__(data):
         if type(data) is dict:
@@ -63,3 +68,22 @@ class Config(object):
         with open(path, "r") as f:
             result = Config.__load__(json.loads(f.read()))
         return result
+
+
+class ConfigManager:
+    # Holds Config what it returns
+    conf: Dict
+
+    def __init__(self, config_path: Path):
+        self.conf = Config.load_json(str(config_path))
+
+    def reset(self):
+        config_default = Config.load_json("config-default.json")
+        print("Inside config:" + str(self.conf))
+        jsonpath = Path("config" + ".json")
+        jsonpath.write_text(json.dumps(config_default, indent=2))
+        self.conf = config_default
+
+    def save(self):
+        jsonpath = Path("config" + ".json")
+        jsonpath.write_text(json.dumps(self.conf, indent=2))
