@@ -6,7 +6,7 @@ from functools import reduce
 from nicegui import app, ui
 from nicegui.events import ValueChangeEventArguments
 from utils.config import ConfigManager
-
+from utils.autodetect_os_setting import autodetect_os_setting
 from components.local_file_picker import local_file_picker
 
 
@@ -111,6 +111,25 @@ def reset_settings_handler():
     print(config_man.conf.chimerax.exe_path)
 
 
+def find_exe_path():
+
+    if autodetect_os_setting(config_man.conf):
+        ui.notification(
+            message=f"ChimeraX exe path: {config_man.conf.chimerax.exe_path}. The UI has not been updated but has been set",
+            type="positive",
+        )
+        ui.notification(
+            message=f"Jalview exe path: {config_man.conf.jalview.exe_path}. The UI has not been updated but has been set",
+            type="positive",
+        )
+    else:
+        ui.notification(
+            message=f"Failed to Detect exe Path",
+            type="negative",
+        )
+    # print(autodetect_os_setting(config_man.conf))
+
+
 with ui.card():
     ui.markdown("## Settings")
     # TODO: Combine Choose file and the path into a better icon pattern https://nicegui.io/documentation/input
@@ -132,12 +151,18 @@ with ui.card():
         ui.button(
             "Choose file", on_click=lambda: pick_file(exe_path_input2), icon="folder"
         )
+    ui.button(
+        "Try to automatically find exe_path",
+        on_click=find_exe_path,
+        icon="search",
+    )
     ui.button("Save Settings", on_click=lambda: save_settings(), icon="save")
     ui.button(
         "Reset Settings",
         on_click=reset_settings_handler,
-        icon="save",
+        icon="restart_alt",
     )
+
 
 ui.separator()
 ui.markdown("## Type of program")
