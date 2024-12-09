@@ -45,5 +45,5 @@ class ClustalOmega(MultipleSequenceAlignment):
         response = requests.get(result_url)
         aligned_seq = response.text
         aln_path = Path("output/aligned_sequence" + ".aln")
-        aln_path.write_text(json.dumps(aligned_seq, indent=2))
+        aln_path.write_text(aligned_seq)
         return aln_path, result_url
