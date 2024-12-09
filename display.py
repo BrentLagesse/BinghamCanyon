@@ -1,6 +1,9 @@
 from pathlib import Path
-
+import threading
+import time
 import subprocess
+
+from main import jalview, chimerax
 from typing import List
 from functools import reduce
 from nicegui import app, ui
@@ -74,6 +77,66 @@ async def pick_file(input: ui.input) -> None:
     result = await local_file_picker("~", multiple=False)
     ui.notify(f"You chose {result}")
     input.value = result
+
+
+def open_jalview(jalview_url):
+    jalview.open(jalview_url)
+
+
+def open_chimerax(model_path):
+    chimerax.open(model_path)
+
+
+def run_main():
+    try:
+        # stdout redirected to subprocess pipe
+        process = subprocess.Popen(
+            ["python3", "main.py"], stderr=subprocess.PIPE, text=True
+        )
+        ui.notify("Job recieved!")
+        with ui.card():
+            job_id_text = ui.label("Job ID: ").classes("text-blue-500")
+            spinner = ui.spinner(size="lg")
+            with ui.row() as myrow:
+                pass
+
+        def monitor_process():
+            # Print out the job ID
+            job_id = None
+            jalview_url = None
+            model_path = None
+            for line in iter(process.stderr.readline, ""):
+                if "JOB ID: " in line:
+                    job_id = line.split(":")[1].strip()
+                    job_id_text.set_text(f"Job ID: {job_id}")
+                # if ("JALVIEW URL: " in line):
+                #     jalview_url = line.split(":")[1].strip()
+                #     ui.notify(f"Jalview URL: {jalview_url}")
+                # if ("MODEL PATH: " in line):
+                #     model_path = line.split(":")[1].strip()
+                #     ui.notify(f"Model Path: {model_path}")
+
+            # wait for process to finish
+            process.stderr.close()
+            process.wait()
+
+            print("process complete")
+            # When done, print two buttons to open Jalview and ChimeraX
+
+            # if process.returncode == 0:
+            spinner.delete()
+            with myrow:
+                ui.button(
+                    text="Open Jalview", on_click=lambda: open_jalview(jalview_url)
+                )
+                ui.button(
+                    text="Open ChimeraX", on_click=lambda: open_chimerax(model_path)
+                )
+
+        threading.Thread(target=monitor_process, daemon=True).start()
+
+    except Exception as e:
+        ui.notify(f"Error: {e}")
 
 
 def save_settings() -> None:
@@ -198,7 +261,7 @@ with ui.card():
         value=config_man.conf.sequence_similarly_search.parse.max_entries,
         on_change=lambda e: print(e),
     )
-    ui.button(text="Run")
+    ui.button(text="Run", on_click=run_main)
 
 # @ui.page("/")
 # def index():
