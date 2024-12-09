@@ -1,13 +1,22 @@
 # from chimerax.core.session import Session
 # from chimerax.atomic import structure
 from chimerax.core.commands import run
+from pathlib import Path
+import sys
 
+# Gather our code in a main() function
+# aln_path = sys.argv[1]
 
-run(session, "windowsize 10 10")
+# run(session, "windowsize 10 10")
 
 # https://www.cgl.ucsf.edu/chimerax/docs/user/commands/open.html
 # Have to pass in double quotes to handle with spaces
 # run(session, ' open "~\\Downloads\\test clustal.aln"')
+# home_dir = Path.home()
+# run(
+#     session,
+#     f" open {aln_path}",
+# )
 run(
     session,
     ' open "C:\\Coding Projects\\BinghamCanyon\\BinghamCanyon\\output\\aligned_sequence.aln"',

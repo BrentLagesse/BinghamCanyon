@@ -28,11 +28,15 @@ jalview = Jalview(
 seq_db = DBFetch(
     is_individually_retrieved=config_manager.conf.sequence_database.db_fetch.is_individually_retrieved
 )
-# SSS = NCIBlASTPlus(
-# SSS = NCIBlASTPlus(
+SSS = NCIBlASTPlus(
+    job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
+    sequence_database=seq_db,
+    check_delay=config_manager.conf.sequence_similarly_search.nci_blast_plus.check_delay,
+)
+# SSS = NCIBlastPlusParseTest(
 #     job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
 #     sequence_database=seq_db,
-#     check_delay=conf.sequence_similarly_search.nci_blast_plus.check_delay,
+#     check_delay=config_manager.conf.sequence_similarly_search.nci_blast_plus.check_delay,
 # )
 # SSS = SSSTest(sequence_database=seq_db)
 MSA = ClustalOmega(
@@ -59,10 +63,10 @@ def main():
         unique_id=UNIPROT_ENTRY, output_folder=output_folder_path
     )
     # Finds similar dna sequeunce and returns FASTA format of similar proteins
-    sss_result_path, sss_job_id = SSS.run(seq, settings="NOT YET IMPLEMENTED")
+    sss_result_path, sss_uniprot_url = SSS.run(seq, settings="NOT YET IMPLEMENTED")
 
     # write job ID to err so it can be used in display
-    sys.stderr.write(f"JOB ID: {sss_job_id}")
+    # sys.stderr.write(f"JOB ID: {sss_uniprot_url}")
 
     sss_fasta_path = SSS.parse(
         sss_result_path=sss_result_path,

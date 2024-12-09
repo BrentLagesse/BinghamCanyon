@@ -33,7 +33,7 @@ class AlphaFoldRESTAPI(ProteinModel):
             raise Exception("Protein not found")
         data = response.json()[0]
         output_folder.mkdir(parents=True, exist_ok=True)
-        model_path = output_folder / "protien_model.cif"
+        model_path = output_folder / "protein_model.cif"
         with open(str(model_path), "wb") as f:
             f.write(requests.get(data["cifUrl"]).content)
         # TODO: save image

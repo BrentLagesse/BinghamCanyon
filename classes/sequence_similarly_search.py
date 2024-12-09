@@ -77,10 +77,11 @@ class NCIBlASTPlus(SequenceSimilarlySearch):
         sss_result_path = Path("output/sss_all_data" + ".json")
         sss_result_path.write_text(json.dumps(data, indent=2))
         # TODO: job_id returns url for bio to look at https://www.uniprot.org/blast/uniprotkb/ncbiblast-R20241124-010053-0510-42992132-p1m/overview
+        uniprot_url = f"https://www.uniprot.org/blast/uniprotkb/{job_id}/overview"
         print(
             f"COMPLETE: Sequence Similarly Search (Blast) on Job_ID: {job_id} \n URL: https://www.uniprot.org/blast/uniprotkb/{job_id}/overview"
         )
-        return sss_result_path, job_id
+        return sss_result_path, uniprot_url
 
     def parse(self, sss_result_path: Path, target_match: int, max_entries: int) -> Path:
         print(f"PROCESS: Parsing Sequence Similarly Search (Blast)'s data")

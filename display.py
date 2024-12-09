@@ -87,11 +87,20 @@ def open_chimerax(model_path):
     chimerax.open(model_path)
 
 
+import platform
+
+
 def run_main():
     try:
         # stdout redirected to subprocess pipe
+        # TODO: Fix so doesn't use python.
+        python_path = ""
+        if platform.system() == "Windows":
+            python_path = "python"
+        if platform.system() == "Darwin":
+            python_path = "python3"
         process = subprocess.Popen(
-            ["python3", "main.py"], stderr=subprocess.PIPE, text=True
+            [python_path, "main.py"], stderr=subprocess.PIPE, text=True
         )
         ui.notify("Job recieved!")
         with ui.card():
@@ -106,6 +115,7 @@ def run_main():
             jalview_url = None
             model_path = None
             for line in iter(process.stderr.readline, ""):
+                print(line)
                 if "JOB ID: " in line:
                     job_id = line.split(":")[1].strip()
                     job_id_text.set_text(f"Job ID: {job_id}")
@@ -175,14 +185,16 @@ def reset_settings_handler():
 
 
 def find_exe_path():
-
     if autodetect_os_setting(config_man.conf):
+        chimerax_exe_input.set_value(config_man.conf.chimerax.exe_path)
+        jalview_exe_input.set_value(config_man.conf.jalview.exe_path)
+
         ui.notification(
-            message=f"ChimeraX exe path: {config_man.conf.chimerax.exe_path}. The UI has not been updated but has been set",
+            message=f"ChimeraX exe path: {config_man.conf.chimerax.exe_path}",
             type="positive",
         )
         ui.notification(
-            message=f"Jalview exe path: {config_man.conf.jalview.exe_path}. The UI has not been updated but has been set",
+            message=f"Jalview exe path: {config_man.conf.jalview.exe_path}",
             type="positive",
         )
     else:
@@ -197,22 +209,22 @@ with ui.card():
     ui.markdown("## Settings")
     # TODO: Combine Choose file and the path into a better icon pattern https://nicegui.io/documentation/input
     with ui.row():
-        exe_path_input = ui.input(
+        chimerax_exe_input = ui.input(
             label="ChimeraX exe path",
             value=config_man.conf.chimerax.exe_path,
             on_change=lambda e: settings_handler(e, "chimerax.exe_path"),
         ).classes("w-80")
         ui.button(
-            "Choose file", on_click=lambda: pick_file(exe_path_input), icon="folder"
+            "Choose file", on_click=lambda: pick_file(chimerax_exe_input), icon="folder"
         )
     with ui.row():
-        exe_path_input2 = ui.input(
+        jalview_exe_input = ui.input(
             label="Jalview exe path",
             value=config_man.conf.jalview.exe_path,
             on_change=lambda e: settings_handler(e, "jalview.exe_path"),
         ).classes("w-80")
         ui.button(
-            "Choose file", on_click=lambda: pick_file(exe_path_input2), icon="folder"
+            "Choose file", on_click=lambda: pick_file(jalview_exe_input), icon="folder"
         )
     ui.button(
         "Try to automatically find exe_path",
@@ -226,7 +238,6 @@ with ui.card():
         icon="restart_alt",
     )
 
-
 ui.separator()
 ui.markdown("## Type of program")
 # with ui.dropdown_button("Open me!", auto_close=True):
@@ -238,7 +249,6 @@ job_type_arr = [
     "Method 3: NOT IMPLEMENTED",
 ]
 with ui.card():
-
     toggle1 = ui.toggle(
         job_type_arr,
         value=job_type_arr[0],
