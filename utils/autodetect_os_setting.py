@@ -29,15 +29,13 @@ def autodetect_os_setting(conf: Config) -> bool:
         if len(matching_chimerax_folders) != 1:
             print("Cannot autodetect ChimeraX")
             return False
-        # TODO: automatically checks if this file exist not just set the path
+        # TODO: automatically checks if this file exist and give the user worrying that its not working
         chimerax_exe_path = Path(matching_chimerax_folders[0]) / "bin" / "chimerax.exe"
         # Jalview
         # Ex. Path.home() = C:\\Users\\chhor
         user_dir = Path.home()
         jalview_exe_path = user_dir / "AppData" / "Local" / "Jalview" / "jalviewg.exe"
-        # conf.jalview.exe_path = (
-        #     user_dir / "AppData" / "Local" / "Jalview" / "jalviewg.exe"
-        # )
+        print(jalview_exe_path)
     if platform.system() == "Darwin":
         app_path = Path("/Applications")
         matching_chimerax_folders = find_folder(
@@ -52,6 +50,7 @@ def autodetect_os_setting(conf: Config) -> bool:
         jalview_exe_path = (
             app_path / "Jalview.app" / "Contents" / "MacOS" / "JavaApplicationStub"
         )
+        # Example of what macs path would look like
         # config.chimerax.exe_path = (
         #     "Applications/ChimeraX-1.9-rc2024.12.03.app/Contents/MacOS/ChimeraX"
         # )
@@ -61,5 +60,5 @@ def autodetect_os_setting(conf: Config) -> bool:
     print(f"ChimeraX exe path: {chimerax_exe_path}")
     print(f"Jalview exe path: {jalview_exe_path}")
     conf.chimerax.exe_path = str(chimerax_exe_path)
-    conf.jalview_exe_path = str(jalview_exe_path)
+    conf.jalview.exe_path = str(jalview_exe_path)
     return True

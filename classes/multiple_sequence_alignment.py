@@ -4,6 +4,7 @@ import time
 from pathlib import Path
 import requests
 import json
+from constants import ALIGNED_SEQUENCE_NAME
 
 
 class MultipleSequenceAlignment(Protocol):
@@ -44,6 +45,6 @@ class ClustalOmega(MultipleSequenceAlignment):
         result_url = f"https://www.ebi.ac.uk/Tools/services/rest/clustalo/result/{job_id}/aln-clustal_num"
         response = requests.get(result_url)
         aligned_seq = response.text
-        aln_path = Path("output/aligned_sequence" + ".aln")
+        aln_path = Path("output") / ALIGNED_SEQUENCE_NAME
         aln_path.write_text(aligned_seq)
         return aln_path, result_url

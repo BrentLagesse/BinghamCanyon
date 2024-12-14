@@ -5,7 +5,7 @@ import subprocess
 class Jalview:
     """To do: handle different OS"""
 
-    exe_path: str
+    exe_path: Path
     is_window: bool
 
     def __init__(self, exe_path: Path, is_window=True):
@@ -14,4 +14,4 @@ class Jalview:
 
     def open(self, ebi_url: str = ""):
         # example of ebi_url "https://www.ebi.ac.uk/Tools/services/rest/clustalo/result/clustalo-R20240709-165430-0694-644924-p1m/aln-clustal_num"
-        subprocess.Popen([self.exe_path, ebi_url], shell=self.is_window)
+        subprocess.Popen([str(self.exe_path), ebi_url], shell=self.is_window)

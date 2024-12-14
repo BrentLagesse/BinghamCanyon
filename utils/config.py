@@ -1,6 +1,7 @@
 import json
 from typing import TypedDict
 from pathlib import Path
+from constants import CONFIG_NAME
 
 # TODO: Adding typing
 # Python it is really hard to add typing
@@ -28,7 +29,7 @@ from pathlib import Path
 
 
 # Reads config.json
-# TODO: Make into a instance class so reset doesn't have to take in a dictionary and return
+# TODO:
 # Modified version of  https://stackoverflow.com/questions/19078170/how-would-you-save-a-simple-settings-configuration-file-in-python
 
 
@@ -71,8 +72,12 @@ class Config(object):
 
 
 class ConfigManager:
+    """
+    Wrapper class for Config
+    """
+
     # Holds Config what it returns
-    conf: Dict
+    conf: Config
 
     def __init__(self, config_path: Path):
         self.conf = Config.load_json(str(config_path))
@@ -84,6 +89,10 @@ class ConfigManager:
         jsonpath.write_text(json.dumps(config_default, indent=2))
         self.conf = config_default
 
-    def save(self):
-        jsonpath = Path("config" + ".json")
+    def save(self, output_path: Path = Path()):
+        """
+        Args:
+            output_path (Path, optional): default is saves to root of project. specifying path means it is save there instead
+        """
+        jsonpath = output_path / CONFIG_NAME
         jsonpath.write_text(json.dumps(self.conf, indent=2))

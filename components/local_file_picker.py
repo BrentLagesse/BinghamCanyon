@@ -6,7 +6,8 @@ from nicegui import events, ui
 
 
 # Got code from https://github.com/zauberzeug/nicegui/tree/main/examples/local_file_picker
-# Potentially the browser might block getting the file from user's computer. However, it seems through using this, this fixes the problem as it runs python code and not through the browser
+# Potentially the browser might block getting the file path from user's computer. However, it seems through using this, this fixes the problem as it runs python code and not through the browser
+# TODO: ERROR checking as if the button chooses a dir, it just throws an error
 class local_file_picker(ui.dialog):
 
     def __init__(

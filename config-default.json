@@ -2,10 +2,10 @@
   "input_mode": false,
   "output_folder": "output",
   "chimerax": {
-    "exe_path": "C:\\Program Files\\ChimeraX 1.8\\bin\\chimerax.exe"
+    "exe_path": ""
   },
   "jalview": {
-    "exe_path": "C:\\Users\\chhor\\AppData\\Local\\Jalview\\jalviewg.exe"
+    "exe_path": ""
   },
   "sequence_database": {
     "db_fetch": {

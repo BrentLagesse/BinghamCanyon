@@ -166,7 +166,7 @@ class SSSTest(SequenceSimilarlySearch):
         self.sequence_database = sequence_database
 
     def run(self, seq: str, settings: any) -> tuple[Path, str]:
-        return [Path("./test/sss_all_data.json"), ""]
+        return Path("./test/sss_all_data.json"), ""
 
     def parse(self, sss_result_path: Path, target_match: int, max_entries: int) -> Path:
         return Path("./test/sss_fasta_format.fasta")
@@ -175,6 +175,6 @@ class SSSTest(SequenceSimilarlySearch):
 class NCIBlastPlusParseTest(NCIBlASTPlus):
 
     def run(self, seq: str, settings: any) -> tuple[Path, str]:
-        return [Path("./test/sss_all_data.json"), ""]
+        return Path("./test/sss_all_data.json"), ""
 
     # def parse(self, sss_result_path: Path, target_match: int, max_entries: int) -> Path:
