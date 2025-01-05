@@ -1,7 +1,4 @@
-import json
 from pathlib import Path
-import sys
-
 from classes import (
     NCIBlASTPlus,
     JobDispatcherRESTAPI,
@@ -21,8 +18,18 @@ from utils.delete_directory import delete_directory
 from constants import OUTPUT_FOLDER_PATH
 
 PRO_MODEL = AlphaFoldRESTAPI()
+
+# if config.json doesn't exist, takes default and creates it
+if not Path("config.json").exists():
+    source_file = Path("config-default.json")
+    destination_file = Path("config.json")
+    with source_file.open("rb") as src, destination_file.open("wb") as dst:
+        dst.write(src.read())
+    raise Exception(
+        "NOT YET IMPLEMENTED: PLEASE either use UI to get EXE path automatically or manually edit config.json and fill out the exe path of jalview and chimerax and rerun"
+    )
+
 config_manager = ConfigManager(Path("config.json"))
-# Config.reset(conf)
 chimerax = Chimerax(exe_path=config_manager.conf.chimerax.exe_path, is_window=True)
 jalview = Jalview(
     exe_path=config_manager.conf.jalview.exe_path,
@@ -32,16 +39,17 @@ jalview = Jalview(
 seq_db = DBFetch(
     is_individually_retrieved=config_manager.conf.sequence_database.db_fetch.is_individually_retrieved
 )
-# SSS = NCIBlASTPlus(
-#     job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
-#     sequence_database=seq_db,
-#     check_delay=config_manager.conf.sequence_similarly_search.nci_blast_plus.check_delay,
-# )
-SSS = NCIBlastPlusParseTest(
+# You can comment SSS and replace with another one so you don't have to wait 5 minutes
+SSS = NCIBlASTPlus(
     job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
     sequence_database=seq_db,
     check_delay=config_manager.conf.sequence_similarly_search.nci_blast_plus.check_delay,
 )
+# SSS = NCIBlastPlusParseTest(
+#     job_dispatcher=JobDispatcherRESTAPI("ncbiblast"),
+#     sequence_database=seq_db,
+#     check_delay=config_manager.conf.sequence_similarly_search.nci_blast_plus.check_delay,
+# )
 # SSS = SSSTest(sequence_database=seq_db)
 MSA = ClustalOmega(
     job_dispatcher=JobDispatcherRESTAPI("clustalo"),

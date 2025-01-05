@@ -7,6 +7,7 @@ from pathlib import Path
 # {
 #   "python.analysis.typeCheckingMode": "basic"
 # }
+# TODO: Go through the code and put shared hard coded variables to constants
 OUTPUT_FOLDER_PATH: Final[Path] = Path("output")
 ALIGNED_SEQUENCE_NAME: Final[str] = "aligned_sequence.aln"
 CONFIG_NAME: Final[str] = "config.json"

@@ -17,6 +17,13 @@ from classes import Chimerax, Jalview
 
 # TODO: Clean up this whole file and separate the the UI components to their own file and import them here so its not that long
 
+# TODO: both display.py and main.py has this. make it so that config manger automatically handles when there is no config.json
+if not Path("config.json").exists():
+    source_file = Path("config-default.json")
+    destination_file = Path("config.json")
+    with source_file.open("rb") as src, destination_file.open("wb") as dst:
+        dst.write(src.read())
+
 config_man = ConfigManager(Path("config.json"))
 
 
