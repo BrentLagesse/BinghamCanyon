@@ -6,3 +6,5 @@ test.py
 .env
 output
 dist
+config.json
+result.json

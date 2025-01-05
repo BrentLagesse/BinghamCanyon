@@ -10,6 +10,7 @@ bottle==0.13.2
 certifi==2024.8.30
 charset-normalizer==3.4.0
 click==8.1.7
+DateTime==5.5
 docutils==0.21.2
 fastapi==0.115.6
 frozenlist==1.5.0

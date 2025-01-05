@@ -1,0 +1,33 @@
+{
+  "input_mode": false,
+  "output_folder": "output",
+  "chimerax": {
+    "exe_path": ""
+  },
+  "jalview": {
+    "exe_path": ""
+  },
+  "sequence_database": {
+    "db_fetch": {
+      "is_individually_retrieved": true
+    }
+  },
+  "sequence_similarly_search": {
+    "nci_blast_plus": {
+      "check_delay": 10
+    },
+    "parse": {
+      "target_match": 50,
+      "max_entries": 20
+    }
+  },
+  "multiple_sequence_alignment": {
+    "clustal_omega": {
+      "check_delay": 5
+    },
+    "run": {
+      "sss_fasta_path": "TODO: SHOULD REMOVE OR NOT because should the config hold data?",
+      "settings": "NOT YET IMPLEMENTED"
+    }
+  }
+}

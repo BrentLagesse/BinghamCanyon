@@ -1,4 +1,4 @@
-from typing import Protocol
+from typing import Protocol, cast
 from classes.job_dispatcher import JobDispatcher
 from pathlib import Path
 import requests
@@ -20,6 +20,7 @@ class AlphaFoldRESTAPI(ProteinModel):
         }
         params = {
             # api key might be private unique, so not publishing it on github
+            # TODO: Check if this matters as it seems you do not really need api key to get the model
             "key": os.environ.get("ALPHA_FOLD_API_KEY="),
         }
         # response returns a length=1 dict
@@ -30,21 +31,22 @@ class AlphaFoldRESTAPI(ProteinModel):
             headers=headers,
         )
         if response.status_code != 200:
-            raise Exception("Protein not found")
+            raise Exception("Alphafold did not find your protein!")
         data = response.json()[0]
-        output_folder.mkdir(parents=True, exist_ok=True)
-        model_path = output_folder / "protien_model.cif"
+        model_path = output_folder / "protein_model.cif"
         with open(str(model_path), "wb") as f:
             f.write(requests.get(data["cifUrl"]).content)
-        # TODO: save image
+        # TODO: save accuracy image and maybe show to the biologist
         print("COMPLETE: AlphaFold Model")
         # fasta_format is missing first 2 letters like sp/tr but shouldn't matter
-        return data["uniprotSequence"], model_path
+        # cast tells python it is a str
+        seq = cast(str, data["uniprotSequence"])
+        return seq, model_path
 
+
+""""
     # Example of API response
-
-
-""""[
+[
   {
     "entryId": "AF-P54199-F1",
     "gene": "MPS1",
