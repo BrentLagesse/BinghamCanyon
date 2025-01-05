@@ -67,3 +67,5 @@ For understanding the workflow, explore the documentation folder and follow the 
 
 - To run the GUI: `python3 display.py`
 - To run the program in the terminal: `python3 main.py`
+
+Also shoutout to Manaswee who gracefully help build the UI
