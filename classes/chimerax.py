@@ -1,25 +1,29 @@
+from __future__ import annotations
+
 from pathlib import Path
-
 import subprocess
+from typing import Union
 
 
-# https://www.cgl.ucsf.edu/chimerax/docs/user/startup.html#:~:text=ChimeraX%20can%20be%20started%20from,executable%20created%20by%20the%20installer.
+# https://www.cgl.ucsf.edu/chimerax/docs/user/startup.html
 class Chimerax:
-    """To do: handle different OS"""
+    """Small wrapper to launch ChimeraX with a model and a Python script.
 
-    exe_path: Path
-    is_window: bool
+    Notes:
+    - On macOS/Linux we MUST use shell=False so the model/script arguments are preserved.
+    - We pass an absolute model path so ChimeraX can always locate the file.
+    """
 
-    def __init__(self, exe_path: Path, is_window=True):
-        self.exe_path = exe_path
+    def __init__(self, exe_path: Union[str, Path], is_window: bool = True):
+        self.exe_path = str(exe_path)
         self.is_window = is_window
 
-    # TODO: handle case when model_path is not passed in
-    def open(self, model_path: Path):
-        model = Path().resolve() / model_path
-        path = Path("chimerax_scripts") / "automate_conservation.py"
-        python_script = str(path)
-        subprocess.Popen([self.exe_path, model, python_script], shell=self.is_window)
+    def open(self, model_path: Union[str, Path]) -> None:
+        model = str(Path(model_path).expanduser().resolve())
+        script = str((Path("chimerax_scripts") / "automate_conservation.py").resolve())
 
+        # ChimeraX expects scripts via --script. Any args after the script are available in sys.argv inside the script.
+        cmd = [self.exe_path, "--script", script, model]
 
-# "Program Files\ChimeraX 1.8\bin\chimerax.exe" --stereo --start
+        # Do NOT use shell=True on macOS/Linux; it can drop args and you'll get an empty ChimeraX window.
+        subprocess.Popen(cmd, shell=False)

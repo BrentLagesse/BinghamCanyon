@@ -1,17 +1,21 @@
+from __future__ import annotations
+
 from pathlib import Path
 import subprocess
+from typing import Union
 
 
 class Jalview:
-    """To do: handle different OS"""
+    """Small wrapper to launch Jalview.
 
-    exe_path: Path
-    is_window: bool
+    On macOS/Linux, shell=False is the most reliable way to preserve arguments.
+    """
 
-    def __init__(self, exe_path: Path, is_window=True):
-        self.exe_path = exe_path
+    def __init__(self, exe_path: Union[str, Path], is_window: bool = True):
+        self.exe_path = str(exe_path)
         self.is_window = is_window
 
-    def open(self, ebi_url: str = ""):
-        # example of ebi_url "https://www.ebi.ac.uk/Tools/services/rest/clustalo/result/clustalo-R20240709-165430-0694-644924-p1m/aln-clustal_num"
-        subprocess.Popen([str(self.exe_path), ebi_url], shell=self.is_window)
+    def open(self, ebi_url_or_path: str = "") -> None:
+        # Example URL:
+        # https://www.ebi.ac.uk/Tools/services/rest/clustalo/result/<jobid>/aln-clustal_num
+        subprocess.Popen([self.exe_path, ebi_url_or_path], shell=False)

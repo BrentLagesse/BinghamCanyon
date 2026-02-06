@@ -42,7 +42,7 @@ def open_jalview(jalview_url: str, job_id: str):
     job_conf = Config().load_json(str(job_conf_path))
     jalview = Jalview(
         exe_path=job_conf.jalview.exe_path,
-        is_window=True,
+        is_window=(sys.platform == "win32"),
     )
     jalview.open(jalview_url)
 
@@ -51,8 +51,9 @@ def open_chimerax(model_path, job_id: str):
     # Should probably just read the settings value in the webpage
     job_conf_path = Path(OUTPUT_FOLDER_PATH / job_id / CONFIG_NAME)
     job_conf = Config().load_json(str(job_conf_path))
-    chimerax = Chimerax(exe_path=job_conf.chimerax.exe_path, is_window=True)
-    chimerax.open(model_path)
+    chimerax = Chimerax(exe_path=job_conf.chimerax.exe_path, is_window=(sys.platform == "win32"))
+    abs_model_path = str(Path(model_path).expanduser().resolve())
+    chimerax.open(abs_model_path)
 
 
 def run_main(uniprot_entry: str):

@@ -1,16 +1,24 @@
-# from chimerax.core.session import Session
-# from chimerax.core.commands import run
+from pathlib import Path
+import sys
+
 from chimerax.core.commands import run
 
-from pathlib import Path
+# This script is launched by chimerax.py like:
+#   ChimeraX --script chimerax_scripts/automate_conservation.py <model_path>
+#
+# Any arguments after the script path are available in sys.argv here.
+# sys.argv[0] is this script file.
+model_path = Path(sys.argv[1]).expanduser().resolve() if len(sys.argv) > 1 else None
 
-cwd = Path.cwd()
-# The problem is that the path is hard coded and I could not figure out how to change the path dynamically.
-# TODO: Figure out how to pass uuid of the job because you cannot simply pass it here
-# The double quotes needs to be there incase the user cwd has a space like "C:\\Coding Projects"
-run(session, f'open "{cwd}\\output\\aligned_sequence.aln"')
+if model_path and model_path.exists():
+    run(session, f'open "{model_path.as_posix()}"')
+else:
+    # If no model is provided, do nothing (ChimeraX will still open).
+    pass
 
-# https://www.cgl.ucsf.edu/chimerax/docs/user/commands/open.html
-run(session, "sequence associate /A")
-run(session, "color byattribute seq_conservation palette blue:white:red range -1.5,1.5")
-# run(main)
+# If you later want to pass an alignment file too, you can add it as argv[2] and uncomment below:
+# aln_path = Path(sys.argv[2]).expanduser().resolve() if len(sys.argv) > 2 else None
+# if aln_path and aln_path.exists():
+#     run(session, f'open "{aln_path.as_posix()}"')
+#     run(session, "sequence associate /A")
+#     run(session, "color byattribute seq_conservation palette blue:white:red range -1.5,1.5")
