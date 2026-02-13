@@ -1,16 +1,17 @@
 from pathlib import Path
 import threading
-import time
-from subprocess import Popen, PIPE, STDOUT
+from subprocess import Popen
+from typing import Optional
 
-from typing import List
-from functools import reduce
-from nicegui import app, ui, native
+import requests
+from nicegui import ui, native
 from nicegui.events import ValueChangeEventArguments
+
 from utils.config import ConfigManager, Config
 from utils.autodetect_os_setting import autodetect_os_setting
 from components.local_file_picker import local_file_picker
 from constants import OUTPUT_FOLDER_PATH, RESULT_NAME, CONFIG_NAME
+
 import sys
 import uuid
 from classes import Chimerax, Jalview
@@ -36,7 +37,16 @@ async def pick_file(input: ui.input) -> None:
     input.value = result
 
 
-def open_jalview(jalview_url: str, job_id: str):
+def download_alignment_to_file(jalview_url: str, out_path: Path) -> Path:
+    """Download the alignment text from the EBI clustalo URL and save it as a local .aln file."""
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    r = requests.get(jalview_url, timeout=60)
+    r.raise_for_status()
+    out_path.write_text(r.text)
+    return out_path
+
+
+def open_jalview(aln_or_url: str, job_id: str):
     # Should probably just read the settings value in the webpage
     job_conf_path = Path(OUTPUT_FOLDER_PATH / job_id / CONFIG_NAME)
     job_conf = Config().load_json(str(job_conf_path))
@@ -44,16 +54,26 @@ def open_jalview(jalview_url: str, job_id: str):
         exe_path=job_conf.jalview.exe_path,
         is_window=(sys.platform == "win32"),
     )
-    jalview.open(jalview_url)
+    jalview.open(aln_or_url)
 
 
-def open_chimerax(model_path, job_id: str):
+def open_chimerax(model_path: str, job_id: str, aln_path: Optional[str] = None):
     # Should probably just read the settings value in the webpage
     job_conf_path = Path(OUTPUT_FOLDER_PATH / job_id / CONFIG_NAME)
     job_conf = Config().load_json(str(job_conf_path))
-    chimerax = Chimerax(exe_path=job_conf.chimerax.exe_path, is_window=(sys.platform == "win32"))
+
+    chimerax = Chimerax(
+        exe_path=job_conf.chimerax.exe_path,
+        is_window=(sys.platform == "win32"),
+    )
+
     abs_model_path = str(Path(model_path).expanduser().resolve())
-    chimerax.open(abs_model_path)
+
+    if aln_path is not None:
+        abs_aln_path = str(Path(aln_path).expanduser().resolve())
+        chimerax.open(abs_model_path, abs_aln_path)
+    else:
+        chimerax.open(abs_model_path)
 
 
 def run_main(uniprot_entry: str):
@@ -64,9 +84,11 @@ def run_main(uniprot_entry: str):
             type="negative",
         )
         return
+
     try:
         job_id = uuid.uuid4()
         print("Uuid:", job_id)
+
         process = Popen(
             [
                 sys.executable,
@@ -79,27 +101,45 @@ def run_main(uniprot_entry: str):
             ],
             text=True,
         )
+
         ui.notify("Job received!")
         with ui.card():
-            job_id_text = ui.label(f"Job ID: {job_id}").classes("text-blue-500")
+            ui.label(f"Job ID: {job_id}").classes("text-blue-500")
             spinner = ui.spinner(size="lg")
             with ui.row() as myrow:
                 pass
 
         def monitor_process():
-
             job_output_path = OUTPUT_FOLDER_PATH / str(job_id)
             job_output_path.mkdir(parents=True, exist_ok=True)
+
+            # Save current settings into the job folder
             config_man.save(output_path=job_output_path)
+
+            # Wait for pipeline to finish
             process.wait()
             print("process complete")
-            # TODO: Due to running out of time, reusing ConfigManager but it should probably be its own class as result.json is a lot different looking.
+
+            # Read result.json produced by main.py
             job_result = ConfigManager(config_path=job_output_path / RESULT_NAME)
             print(job_result.conf)
+
             jalview_url = job_result.conf.jalview_url
             model_path = job_result.conf.model_path
             sss_uniprot_url = job_result.conf.sss_uniprot_url
             print("SSS", sss_uniprot_url)
+
+            # Download alignment to local .aln (so ChimeraX can open it reliably)
+            aln_file_path = job_output_path / "alignment.aln"
+            aln_file_str: Optional[str] = None
+            try:
+                download_alignment_to_file(jalview_url, aln_file_path)
+                aln_file_str = str(aln_file_path)
+                print(f"Saved alignment to: {aln_file_str}")
+            except Exception as e:
+                print(f"Failed to download alignment file: {e}")
+                aln_file_str = None
+
             spinner.delete()
 
             with myrow:
@@ -107,13 +147,17 @@ def run_main(uniprot_entry: str):
                     text=f"UNIPROT Blast Results: {sss_uniprot_url}",
                     target=sss_uniprot_url,
                 )
+
+                # Jalview: open the local .aln if we have it; otherwise fall back to the URL
                 ui.button(
                     text="Open Jalview",
-                    on_click=lambda: open_jalview(jalview_url, str(job_id)),
+                    on_click=lambda: open_jalview(aln_file_str if aln_file_str else jalview_url, str(job_id)),
                 )
+
+                # ChimeraX: open model + (optional) alignment so your automate_conservation.py can run coloring
                 ui.button(
-                    text="Open ChimeraX",
-                    on_click=lambda: open_chimerax(model_path, str(job_id)),
+                    text="Open ChimeraX (Colored)",
+                    on_click=lambda: open_chimerax(model_path, str(job_id), aln_file_str),
                 )
 
         threading.Thread(target=monitor_process, daemon=True).start()
@@ -123,7 +167,6 @@ def run_main(uniprot_entry: str):
 
 
 def save_settings() -> None:
-
     print("Save Settings")
     config_man.save()
     ui.notification(message="Settings Saved", type="info")
@@ -134,7 +177,6 @@ def settings_handler(e: ValueChangeEventArguments, key_str: str) -> None:
     Takes key_str and It basically converts "chimerax_exe_path" into conf.chimerax_exe_path
     TODO:Figure out a way to do this better
     """
-
     conf = config_man.conf
     keys = key_str.split(".")
     for key in keys[:-1]:
@@ -208,25 +250,26 @@ with ui.card():
         on_click=reset_settings_handler,
         icon="restart_alt",
     )
+
 ui.separator()
 ui.markdown("## Type of program")
+
 job_type_arr = [
     "Method 1: Yeast across all species",
     "Method 2: NOT IMPLEMENTED",
     "Method 3: NOT IMPLEMENTED",
 ]
+
 with ui.card():
-    method_options = ui.toggle(
-        job_type_arr,
-        value=job_type_arr[0],
-    )
+    ui.toggle(job_type_arr, value=job_type_arr[0])
+
     uniprot_entry = ui.input(
         label="UNIPROT Entry",
         placeholder="Ex. P54199 for MPS1 YEAST",
-        # on_change=lambda e:,
     ).classes("w-80")
+
     ui.markdown("### Method Settings")
-    # TODO: Add validation
+
     ui.number(
         label="Minimum Target Match (%)",
         value=config_man.conf.sequence_similarly_search.parse.target_match,
@@ -234,6 +277,7 @@ with ui.card():
             e, "sequence_similarly_search.parse.target_match"
         ),
     )
+
     ui.number(
         label="Max number of protein",
         value=config_man.conf.sequence_similarly_search.parse.max_entries,
@@ -241,10 +285,8 @@ with ui.card():
             e, "sequence_similarly_search.parse.max_entries"
         ),
     )
-    ui.button(text="Run", on_click=lambda: run_main(uniprot_entry.value))
 
-# @ui.page("/")
-# def index():
+    ui.button(text="Run", on_click=lambda: run_main(uniprot_entry.value))
 
 
 ui.run(dark=True, reload=False, port=native.find_open_port())
